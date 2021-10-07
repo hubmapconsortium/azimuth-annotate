@@ -5,7 +5,7 @@ class: CommandLineTool
 requirements:
   - class: DockerRequirement
     dockerPull: azimuth:0.4.3
-baseCommand: [Rscript, /azimuth_analysis.r]
+baseCommand: [Rscript, /azimuth_analysis.R]
 
 inputs:
   reference:

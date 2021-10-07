@@ -36,7 +36,3 @@ RUN mkdir /opt/human_lung
 RUN wget --no-check-certificate https://zenodo.org/record/4895404/files/idx.annoy -O /opt/human_lung/idx.annoy
 RUN wget --no-check-certificate https://zenodo.org/record/4895404/files/ref.Rds -O /opt/human_lung/ref.Rds
 
-# this step should later be modified such that the references are either pulled from
-# hubmaps pipeline assets s3 bucket, or wherever the existing hubmap-azimuth refs live
-# copy references to docker image
-COPY data/ /opt
