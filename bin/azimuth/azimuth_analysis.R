@@ -198,16 +198,19 @@ if (reference.name %in% c("kidney", "lung")) {
   df <- data.frame(ls)
   df <- cbind(cells = rownames(df), df)
   df["barcodes"] <- names(query$orig.ident)
+  df["V1"] <- matrix(query[["proj.umap"]]@cell.embeddings, ncol=2)[,1]
+  df["V2"] <- matrix(query[["proj.umap"]]@cell.embeddings, ncol=2)[,2]
 
-  # load expr matrix as anndata object
+  # load secondary analysis matrix as anndata object
   secondary.analysis <- read_h5ad(filename = save.h5.path)
 
-  # expr.h5ad may contain barcodes which were filtered from secondary analysis. Find and remove said barcode annotations
+  # expr.h5ad may contain barcodes which were filtered from secondary analysis.
   drop.bcs <- setdiff(colnames(query), rownames(secondary.analysis))
   df <- df[!df$barcodes %in% drop.bcs, ]
 
-  # removed cells and barcodes columns
-  df <- df[ , !(names(df) %in% c("cells", "barcodes"))]
+  # remove cells and barcodes cols and umap projection cols post-filtering
+  umap.new <- matrix(c(df$V1, df$V2), ncol=2)
+  df <- df[ , !(names(df) %in% c("cells", "barcodes", "V1", "V2"))]
 
   new.annotations <- list()
   for (c in names(df)) {
@@ -217,6 +220,9 @@ if (reference.name %in% c("kidney", "lung")) {
 
   # add cell annotations to secondary analysis obsm
   secondary.analysis$obsm <- c(secondary.analysis$obsm, new.annotations)
+  
+  # add reference-guided UMAP to anndata object
+  secondary.analysis$obsm$X_umap_proj <- umap.new
 
   # save modified secondary_analysis.h5ad matrix to a new annotated equivalent
   write_h5ad(secondary.analysis, secondary.analysis.path) 
@@ -226,10 +232,9 @@ if (reference.name %in% c("kidney", "lung")) {
     "seurat" = list("version" = seurat.version),
     "azimuth" = list("version" = azimuth.version),
     "reference" = list("version" = reference.version, "name" = reference.name)
-  ) # fix this to dynamically update at a later date
+  )
 
   version.metadata.json = toJSON(version.metadata)
-  print(version.metadata.json)
   f <- file("version_metadata.json")
   write(version.metadata.json, f)
   close(f)
@@ -240,7 +245,6 @@ if (reference.name %in% c("kidney", "lung")) {
   write_h5ad(ad, secondary.analysis.path)
   version.metadata <- list("is_annotated" = FALSE)
   version.metadata.json = toJSON(version.metadata)
-  print(version.metadata.json)
   f <- file(version.metadata.path)
   write(version.metadata.json, f)
   close(f)
