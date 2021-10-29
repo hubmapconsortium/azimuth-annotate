@@ -6,7 +6,7 @@ library(anndata)
 library(rjson)
 
 args <- commandArgs(trailingOnly=TRUE)
-reference.name <- tolower(args[1])  # currently, 'kidney' and 'lung' are the two supported references
+reference.name <- args[1]  # currently, 'kidney' and 'lung' are the two supported references
 query.h5.path <- args[2]  # path to raw counts matrix 
 save.h5.path <- args[3] 
 
@@ -19,11 +19,11 @@ if (!file.exists(query.h5.path)) {
   stop("Path to secondary_analysis.h5ad ", save.h5.path, call. = FALSE)
 }
 
-if (reference.name %in% c("kidney", "lung")) {
+if (reference.name %in% c("RK", "LK", "RL", "LL")) {
   # reference.path points to path within docker image
-  if (reference.name == "kidney") {
+  if (reference.name %in% c("RK", "LK")) {
     reference.path = "/opt/human_kidney"
-  } else if (reference.name == "lung") {
+  } else if (reference.name %in% c("RL", "LL")) {
     reference.path = "/opt/human_lung"
   }
   if (!dir.exists(reference.path)) {
