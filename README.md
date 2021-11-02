@@ -10,12 +10,6 @@ The annotation workflow utilizes [Azimuth](https://github.com/satijalab/azimuth)
 Requirements
 ------------
 
-The docker image for this workflow does not currently exist on docker hub and thus must be built before running the workflow.
-```
-docker image build -f docker/Dockerfile .
-docker image tag ID azimuth:0.4.3
-```
-
 Running the pipeline requires a CWL workflow execution engine and container
 runtime; we recommend Docker and the ``cwltool`` reference implementation.
 ``cwltool`` is written in Python and can be installed into a sufficiently
