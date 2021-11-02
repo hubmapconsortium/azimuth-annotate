@@ -24,4 +24,4 @@ repository, check out a tag, and invoke the pipeline as::
 ```
 cwltool pipeline.cwl --matrix EXPR_H5AD --reference REFERENCE --secondary-analysis-matrix SECONDARY_ANALYSIS_H5AD
 ```
-The supported values for ``--reference`` are ``RK``, ``LK``, ``RL``, or ``LL``. These two character codes indicate the side the organ was derived from (right or left) and the organ type (kidney or lung). If a value for ``--reference`` which doesn't match is provided, the workflow will run without performing annotation.
+The supported values for ``--reference`` are ``RK``, ``LK``, ``RL``, or ``LL``. These two character codes indicate the side the organ was derived from (right or left) and the organ type (kidney or lung). If the value for ``--reference`` doesn't match one of the four options, the workflow will run without performing annotation.
