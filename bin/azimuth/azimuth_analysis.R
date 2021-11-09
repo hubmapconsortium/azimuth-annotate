@@ -12,6 +12,7 @@ save.h5.path <- args[3]
 
 secondary.analysis.path <- "secondary_analysis.h5ad"
 version.metadata.path <- "version_metadata.json"
+annotations.csv.path <- "annotations.csv"
 
 if (!file.exists(query.h5.path)) {
   stop("Path to raw counts matrix doesn't exist ", query.h5.path, call. = FALSE)
@@ -218,7 +219,7 @@ if (reference.name %in% c("RK", "LK", "RL", "LL")) {
   # save modified secondary_analysis.h5ad matrix to a new annotated equivalent
   write_h5ad(secondary.analysis, secondary.analysis.path) 
 
-  write.csv(df, file="annotations.csv", row.names=FALSE)
+  write.csv(df, file=annotations.csv.path, row.names=FALSE)
 
   version.metadata <- list(
     "is_annotated" = TRUE,
@@ -233,6 +234,7 @@ if (reference.name %in% c("RK", "LK", "RL", "LL")) {
 
 } else {
   # no-op, but still return the unmodified secondary_analysis.h5ad and metadata indicating no annotation occurred
+  write.csv(data.frame(), file=annotations.csv.path, row.names=FALSE)
   ad <- read_h5ad(save.h5.path)
   write_h5ad(ad, secondary.analysis.path)
   version.metadata <- list("is_annotated" = FALSE)
@@ -241,5 +243,4 @@ if (reference.name %in% c("RK", "LK", "RL", "LL")) {
   write(version.metadata.json, f)
   close(f)
   # Create dummy annotations file if no annotation performed. Will handle this case in write_metadata.py
-  write.csv(data.frame(), file="annotations.csv", row.names=FALSE)
 }

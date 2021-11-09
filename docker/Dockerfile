@@ -26,6 +26,9 @@ RUN echo "$AZIMUTH_VER"
 
 COPY bin/azimuth .
 
+# get kidney Azimuth to ASCT+B mapping
+RUN wget https://raw.githubusercontent.com/hubmapconsortium/azimuth-annotate/main/data/kidney.json -O /opt/kidney.json
+
 # human kidney reference
 RUN mkdir /opt/human_kidney
 RUN wget --no-check-certificate https://zenodo.org/record/5181818/files/idx.annoy -O /opt/human_kidney/idx.annoy

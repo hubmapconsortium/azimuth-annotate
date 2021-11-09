@@ -20,9 +20,19 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
     ad = anndata.read_h5ad(secondary_analysis_h5ad)
 
     annotations_df = pd.read_csv(annotations_csv)
-    if (annotations_df.shape != (0, 1)):  # annotation was performed
+    if (metadata["is_annotated"]):  # annotation was performed
         annotations_df.index = ad.obs.index  # set index for proper concatentation
         ad.obs = pd.concat([ad.obs, annotations_df], axis=1)  # add new columns to obs
+
+    # map kidney ASCT+B annotations
+    if (metadata["is_annotated"] and metadata["reference"]["name"] in {"RK", "LK"}):
+        with open("/opt/kidney.json") as f:
+            mapping = json.load(f)
+        
+        asct_annotations_name = "predicted.ASCT.celltype"
+        asct_annotations = [mapping.get(a.strip(), "other") for a in annotations_df["predicted.annotation.l3"]]
+        ad.obs[asct_annotations_name] = asct_annotations
+        ad.obs[asct_annotations_name + ".score"] = annotations_df["predicted.annotation.l3.score"]
 
     ad.uns[
         "annotation_metadata"
