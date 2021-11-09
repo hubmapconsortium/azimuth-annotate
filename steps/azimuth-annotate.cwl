@@ -30,3 +30,7 @@ outputs:
     type: File
     outputBinding:
       glob: "version_metadata.json"
+  annotations_csv:
+    type: File
+    outputBinding:
+      glob: "annotations.csv"

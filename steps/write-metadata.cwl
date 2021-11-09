@@ -16,6 +16,10 @@ inputs:
     type: File
     inputBinding:
       position: 2
+  annotations_csv:
+    type: File
+    inputBinding:
+      position: 3
 
 outputs:
   annotated_matrix:

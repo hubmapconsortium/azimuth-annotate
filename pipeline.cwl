@@ -32,11 +32,14 @@ steps:
     out:
       - annotated_matrix
       - version_metadata
+      - annotations_csv
   write_metadata:
     run: steps/write-metadata.cwl
     in:
       secondary_analysis_matrix:
         source: azimuth/annotated_matrix
+      annotations_csv:
+        source: azimuth/annotations_csv
       version_metadata:
         source: azimuth/version_metadata
     out:

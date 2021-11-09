@@ -212,20 +212,13 @@ if (reference.name %in% c("RK", "LK", "RL", "LL")) {
   umap.new <- matrix(c(df$V1, df$V2), ncol=2)
   df <- df[ , !(names(df) %in% c("cells", "barcodes", "V1", "V2"))]
 
-  new.annotations <- list()
-  for (c in names(df)) {
-    new.annotations <- c(new.annotations, list(matrix(df[[c]])))
-  }
-  names(x = new.annotations) <- names(df)
-
-  # add cell annotations to secondary analysis obsm
-  secondary.analysis$obsm <- c(secondary.analysis$obsm, new.annotations)
-  
   # add reference-guided UMAP to anndata object
   secondary.analysis$obsm$X_umap_proj <- umap.new
 
   # save modified secondary_analysis.h5ad matrix to a new annotated equivalent
   write_h5ad(secondary.analysis, secondary.analysis.path) 
+
+  write.csv(df, file="annotations.csv", row.names=FALSE)
 
   version.metadata <- list(
     "is_annotated" = TRUE,
@@ -233,7 +226,6 @@ if (reference.name %in% c("RK", "LK", "RL", "LL")) {
     "azimuth" = list("version" = azimuth.version),
     "reference" = list("version" = reference.version, "name" = reference.name)
   )
-
   version.metadata.json = toJSON(version.metadata)
   f <- file("version_metadata.json")
   write(version.metadata.json, f)
@@ -248,4 +240,6 @@ if (reference.name %in% c("RK", "LK", "RL", "LL")) {
   f <- file(version.metadata.path)
   write(version.metadata.json, f)
   close(f)
+  # Create dummy annotations file if no annotation performed. Will handle this case in write_metadata.py
+  write.csv(data.frame(), file="annotations.csv", row.names=FALSE)
 }
