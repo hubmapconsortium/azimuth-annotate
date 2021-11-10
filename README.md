@@ -19,3 +19,18 @@ repository, check out a tag, and invoke the pipeline as::
 cwltool pipeline.cwl --matrix EXPR_H5AD --reference REFERENCE --secondary-analysis-matrix SECONDARY_ANALYSIS_H5AD
 ```
 The supported values for ``--reference`` are ``RK``, ``LK``, ``RL``, or ``LL``. These two character codes indicate the side the organ was derived from (right or left) and the organ type (kidney or lung). If the value for ``--reference`` doesn't match one of the four options, the workflow will run without performing annotation.
+
+Azimuth -> ASCT+B Mapping
+-------------------------
+
+The mapping from Azimuth cell types to ASCT+B cell types is described in JSON format in the ``data`` directory. There will be one mapping for each supported organ type and each mapping will follow the same format. The JSON contains two keys--``version`` and ``mapping``. ``mapping`` contains keys representing Azimuth cell types with values corresponding to ASCT+B cell types. ``version`` contains four keys described below
+
+Key | Description
+--- | ---
+azimuth_reference | ``version`` of azimuth. ``organ`` used. ``annotation.level`` indicates which Azimuth annotations were used for the mapping since there are usually multiple per reference.
+--- | ---
+ASCTB | The version of ASCTB annotation used in mapping.
+--- | ---
+mapping_version | The version of this table itself, as it could hypothetically change independent of Azimuth and ASCTB versions.
+
+Mapping tables are pulled into this workflow's Docker image, so for updates to be propogated the new Docker image will need to be pushed to Docker Hub.

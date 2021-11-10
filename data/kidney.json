@@ -1,7 +1,7 @@
 {
 	"versions": {
 		"azimuth_reference": {
-			"version": "test_dummy_value",
+			"version": "1.0.1",
 			"annotation_level": "annotation.l3",
 			"organ": "kidney"
 		},
