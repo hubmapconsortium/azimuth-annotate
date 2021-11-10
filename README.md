@@ -28,9 +28,7 @@ The mapping from Azimuth cell types to ASCT+B cell types is described in JSON fo
 Key | Description
 --- | ---
 azimuth_reference | ``version`` of azimuth. ``organ`` used. ``annotation.level`` indicates which Azimuth annotations were used for the mapping since there are usually multiple per reference.
---- | ---
 ASCTB | The version of ASCTB annotation used in mapping.
---- | ---
 mapping_version | The version of this table itself, as it could hypothetically change independent of Azimuth and ASCTB versions.
 
 Mapping tables are pulled into this workflow's Docker image, so for updates to be propogated the new Docker image will need to be pushed to Docker Hub.
