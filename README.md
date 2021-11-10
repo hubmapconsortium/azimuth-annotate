@@ -23,7 +23,7 @@ The supported values for ``--reference`` are ``RK``, ``LK``, ``RL``, or ``LL``. 
 Azimuth to ASCT+B Cell Type Mapping
 -------------------------
 
-The mapping from Azimuth cell types to ASCT+B cell types is described in JSON format in the ``data`` directory. There will be one mapping for each supported organ type and each mapping will follow the same format. The JSON contains two keys--``version`` and ``mapping``. ``mapping`` contains keys representing Azimuth cell types with values corresponding to ASCT+B cell types. ``version`` contains four keys described below
+The mapping from Azimuth cell types to ASCT+B cell types is described in JSON format in the ``data`` directory. There will be one mapping for each supported organ type and each mapping will follow the same format. The JSON contains two keys - ``versions`` and ``mapping``. ``mapping`` contains keys representing Azimuth cell types with values corresponding to ASCT+B cell types. ``versions`` contains three keys described below:
 
 Key | Description
 --- | ---
