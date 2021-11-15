@@ -22,7 +22,7 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
     annotations_df = pd.read_csv(annotations_csv)
     if (metadata["is_annotated"]):  # annotation was performed
         annotations_df.index = ad.obs.index  # set index for proper concatentation
-        ad.obs = pd.concat([ad.obs, annotations_df], axis=1)  # add new columns to obs
+        # ad.obs = pd.concat([ad.obs, annotations_df], axis=1)  # add new columns to obs
 
     # map kidney ASCT+B annotations
     if (metadata["is_annotated"] and metadata["azimuth_reference"]["name"] == "kidney"):
