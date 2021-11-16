@@ -43,7 +43,7 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
             )
 
         # if a key does not exist it will quietly map to other instead of hitting a KeyError
-        asct_annotations = [mapping.get(a.strip(), "other") for a in annotations_df[azimuth_annotation_name]]
+        asct_annotations = [mapping["mapping"].get(a.strip(), "other") for a in annotations_df[azimuth_annotation_name]]
         ad.obs[asct_annotations_name] = asct_annotations
         ad.obs[asct_annotations_name + ".score"] = annotations_df[azimuth_annotation_name + ".score"]
 
