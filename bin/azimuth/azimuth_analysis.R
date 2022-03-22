@@ -20,16 +20,15 @@ if (!file.exists(query.h5.path)) {
   stop("Path to secondary_analysis.h5ad ", save.h5.path, call. = FALSE)
 }
 
-if (organ.code %in% c("RK", "LK")) {
+if (organ.code %in% c("RK", "LK", "RL", "LL")) {
   # reference.path points to path within docker image
   if (organ.code %in% c("RK", "LK")) {
     reference.path = "/opt/human_kidney"
     reference.name = "kidney"
+  } else if (organ.code %in% c("RL", "LL")) {
+    reference.path = "/opt/human_lung"
+    reference.name = "lung"
   }
-  # else if (organ.code %in% c("RL", "LL")) {
-  #   reference.path = "/opt/human_lung"
-  #   reference.name = "lung"
-  # }
   if (!dir.exists(reference.path)) {
     stop("Reference path does not exist ", reference.path, call. = FALSE)
   }
@@ -46,6 +45,8 @@ if (organ.code %in% c("RK", "LK")) {
   # cortex references use hierarchical annotations and all other reference annotations names match *.l[1-3]
   if (reference.name %in% c("human-cortex", "mouse-cortex")) {  # not yet supported
     annotation.columns <- c("class", "subclass", "cluster", "cross_species_cluster")
+  } else if (reference.name %in% c("lung")) {
+    annotation.columns <- c("ann_level_1", "ann_level_2", "ann_level_3", "ann_level_4", "ann_level_5", "ann_finest_level")
   } else {
     for (i in grep("[.]l[1-3]", meta.data)) {
       annotation.columns <- c(annotation.columns, meta.data[i])
@@ -221,7 +222,6 @@ if (organ.code %in% c("RK", "LK")) {
 
   # save modified secondary_analysis.h5ad matrix to a new annotated equivalent
   write_h5ad(secondary.analysis, secondary.analysis.path) 
-
   write.csv(df, file=annotations.csv.path, row.names=FALSE)
 
   version.metadata <- list(

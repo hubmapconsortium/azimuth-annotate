@@ -34,6 +34,6 @@ RUN wget --no-check-certificate https://zenodo.org/record/5181818/files/ref.Rds 
 
 # human lung reference
 RUN mkdir /opt/human_lung
-RUN wget --no-check-certificate https://zenodo.org/record/4895404/files/idx.annoy -O /opt/human_lung/idx.annoy
-RUN wget --no-check-certificate https://zenodo.org/record/4895404/files/ref.Rds -O /opt/human_lung/ref.Rds
+RUN wget --no-check-certificate https://zenodo.org/record/6342228/files/idx.annoy -O /opt/human_lung/idx.annoy
+RUN wget --no-check-certificate https://zenodo.org/record/6342228/files/ref.Rds -O /opt/human_lung/ref.Rds
 
