@@ -32,7 +32,7 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
             # get mapping annotation name
             azimuth_annotation_name = "predicted." + mapping["versions"]["azimuth_reference"]["annotation_level"]
             asct_annotations_name = "predicted.ASCT.celltype"
-
+            metadata["annotation_names"] = [asct_annotations_name, asct_annotations_name + ".score"]
             # make sure the azimuth reference version matches the azimuth reference version used in the mapping
             if metadata["azimuth_reference"]["version"] != mapping["versions"]["azimuth_reference"]["version"]:
                 warnings.warn(

@@ -228,7 +228,8 @@ if (organ.code %in% c("RK", "LK", "RL", "LL")) {
     "is_annotated" = TRUE,
     "seurat" = list("version" = seurat.version),
     "azimuth" = list("version" = azimuth.version),
-    "azimuth_reference" = list("version" = reference.version, "name" = reference.name)
+    "azimuth_reference" = list("version" = reference.version, "name" = reference.name),
+    "annotation_names" = predicted.cols
   )
   version.metadata.json = toJSON(version.metadata)
   f <- file("version_metadata.json")
