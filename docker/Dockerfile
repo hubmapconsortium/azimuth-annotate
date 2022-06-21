@@ -16,10 +16,11 @@ RUN gcc -O2 -fPIC -shared lzf/*.c lzf_filter.c -I /usr/include/hdf5/serial/ -lhd
 WORKDIR /
 ENV HDF5_PLUGIN_PATH=/lzf
 
-RUN pip install anndata
+RUN pip install anndata==0.7.8
 RUN R --no-echo -e "BiocManager::install(c('glmGamPoi'))"
 RUN R --no-echo -e "install.packages(c('anndata', 'DT', 'future', 'ggplot2',  'googlesheets4', 'hdf5r', 'htmltools', 'httr', 'patchwork', 'rlang', 'shiny', 'shinyBS', 'shinydashboard', 'shinyjs', 'stringr', 'withr'), repo='https://cloud.r-project.org')"
-RUN R --no-echo -e "remotes::install_github(c('immunogenomics/presto', 'satijalab/azimuth', 'mojaveazure/seurat-disk'), dependencies = FALSE)"
+RUN R --no-echo -e "remotes::install_github('immunogenomics/presto', dependencies = FALSE)"
+RUN R -e "remotes::install_github(c('satijalab/seurat-data', 'satijalab/azimuth', 'mojaveazure/seurat-disk'), dependencies = FALSE)"
 
 ARG AZIMUTH_VER=unknown
 RUN echo "$AZIMUTH_VER"
@@ -29,11 +30,11 @@ COPY data .
 
 # human kidney reference
 RUN mkdir /opt/human_kidney
-RUN wget --no-check-certificate https://zenodo.org/record/5181818/files/idx.annoy -O /opt/human_kidney/idx.annoy
-RUN wget --no-check-certificate https://zenodo.org/record/5181818/files/ref.Rds -O /opt/human_kidney/ref.Rds
+RUN wget -q --no-check-certificate https://zenodo.org/record/5181818/files/idx.annoy -O /opt/human_kidney/idx.annoy
+RUN wget -q --no-check-certificate https://zenodo.org/record/5181818/files/ref.Rds -O /opt/human_kidney/ref.Rds
 
 # human lung reference
 RUN mkdir /opt/human_lung
-RUN wget --no-check-certificate https://zenodo.org/record/6342228/files/idx.annoy -O /opt/human_lung/idx.annoy
-RUN wget --no-check-certificate https://zenodo.org/record/6342228/files/ref.Rds -O /opt/human_lung/ref.Rds
+RUN wget -q --no-check-certificate https://zenodo.org/record/6342228/files/idx.annoy -O /opt/human_lung/idx.annoy
+RUN wget -q --no-check-certificate https://zenodo.org/record/6342228/files/ref.Rds -O /opt/human_lung/ref.Rds
 
