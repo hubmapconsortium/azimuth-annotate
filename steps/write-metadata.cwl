@@ -4,7 +4,7 @@ cwlVersion: v1.0
 class: CommandLineTool
 requirements:
   - class: DockerRequirement
-    dockerPull: hubmap/azimuth-annotate:1.1
+    dockerPull: hubmap/azimuth-annotate:1.2
 baseCommand: [python3, /write_metadata.py]
 
 inputs:
