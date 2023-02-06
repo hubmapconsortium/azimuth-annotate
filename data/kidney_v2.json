@@ -1,0 +1,82 @@
+{
+    "versions": {
+        "azimuth_reference": {
+            "version": "1.0.1",
+            "annotation_level": "annotation.l3",
+            "organ": "kidney",
+            "doi": "10.5281/zenodo.5181818"
+        },
+        "CL_version": "v2023-01-09",
+        "mapping_version": "0.2"
+    },
+    "reviewers": [
+        {
+            "name": "Jonathan C. Silverstein",
+            "ORCID": "0000-0002-9252-6039"
+        }, 
+        {
+            "name": "Sanjay Jain",
+            "ORCID": "0000-0003-2804-127X"
+        }, 
+        {
+            "name": "Ellen M. Quardokus",
+            "ORCID": "0000-0001-7655-4833"
+        }
+    ],
+    "disclaimers": [
+        {
+            "text": "Azimuth reference labels have been converted to closest corresponding cell ontologies."
+        }
+    ],
+    "mapping": {
+        "Afferent / Efferent Arteriole Endothelial": "CL:1000412",
+        "Ascending Thin Limb": "CL:1001107",
+        "Ascending Vasa Recta Endothelial": "CL:1001131",
+        "B": "CL:0000236",
+        "Classical Dendritic": "CL:0000990",
+        "Connecting Tubule": "CL:1000768",
+        "Connecting Tubule Intercalated Type A": "CL:4030020",
+        "Connecting Tubule Principal": "CL:4030018",
+        "Cortical Collecting Duct Intercalated Type A": "CL:1000715",
+        "Cortical Collecting Duct Principal": "CL:1000714",
+        "Cortical Thick Ascending Limb": "CL:1001109",
+        "Cortical Vascular Smooth Muscle / Pericyte": "CL:1001318",
+        "Cycling Mononuclear Phagocyte": "CL:0000113",
+        "Descending Thin Limb Type 1": "CL:4030012",
+        "Descending Thin Limb Type 2": "CL:4030013",
+        "Descending Thin Limb Type 3": "CL:4030014",
+        "Descending Vasa Recta Endothelial": "CL:1001285",
+        "Distal Convoluted Tubule Type 1": "CL:4030016",
+        "Distal Convoluted Tubule Type 2": "CL:4030017",
+        "Fibroblast": "CL:0000057",
+        "Glomerular Capillary Endothelial": "CL:1001005",
+        "Inner Medullary Collecting Duct": "CL:1000718",
+        "Intercalated Type B": "CL:0002201",
+        "Lymphatic Endothelial": "CL:0002138",
+        "M2 Macrophage": "CL:1000698",
+        "Macula Densa": "CL:1000850",
+        "Mast": "CL:0000097",
+        "Medullary Fibroblast": "CL:4030022",
+        "Medullary Thick Ascending Limb": "CL:1001108",
+        "Mesangial": "CL:0000650",
+        "Monocyte-derived": "CL:0011031",
+        "Natural Killer T": "CL:0000814",
+        "Neutrophil": "CL:0000775",
+        "Non-classical monocyte": "CL:0000875",
+        "Outer Medullary Collecting Duct Intercalated Type A": "CL:1000717",
+        "Outer Medullary Collecting Duct Principal": "CL:1000716",
+        "Papillary Tip Epithelial": "CL:1000597",
+        "Parietal Epithelial": "CL:1000452",
+        "Peritubular Capilary Endothelial": "CL:1001033",
+        "Plasma": "CL:0000786",
+        "Plasmacytoid Dendritic": "CL:0000784",
+        "Podocyte": "CL:0000653",
+        "Proximal Tubule Epithelial Segment 1": "CL:4030009",
+        "Proximal Tubule Epithelial Segment 2": "CL:4030010",
+        "Proximal Tubule Epithelial Segment 3": "CL:4030011",
+        "Renin-positive Juxtaglomerular Granular": "CL:0000648",
+        "Schwann / Neural": "CL:0002573",
+        "T": "CL:0000084",
+        "Vascular Smooth Muscle / Pericyte": "CL:1001318"
+    }
+}    
