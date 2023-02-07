@@ -1,62 +1,82 @@
 {
-	"versions": {
-		"azimuth_reference": {
-			"version": "1.0.1",
-			"annotation_level": "annotation.l3",
-			"organ": "kidney"
-		},
-		"ASCTB": "1.1",
-		"mapping_version": "0.1"
-	},
-	"mapping": {
-		"Afferent / Efferent Arteriole Endothelial": "Afferent Arteriole Endothelial Cell",
-		"Ascending Thin Limb": "Ascending Thin Limb Cell",
-		"Ascending Vasa Recta Endothelial": "Ascending Vasa Recta Endothelial Cell",
-		"B": "B cell",
-		"Classical Dendritic": "Dendritic Cell (classical)",
-		"Connecting Tubule": "Connecting Tubule Cell",
-		"Connecting Tubule Intercalated Type A": "Connecting Tubule Intercalated Cell Type A",
-		"Connecting Tubule Principal": "Connecting Tubule Principal Cell",
-		"Cortical Collecting Duct Intercalated Type A": "Collecting Duct Intercalated Cell Type A",
-		"Cortical Collecting Duct Principal": "Cortical Collecting Duct Principal Cell",
-		"Cortical Thick Ascending Limb": "Cortical Thick Ascending Limb Cell",
-		"Cortical Vascular Smooth Muscle / Pericyte": "Vascular Smooth Muscle Cell/Pericyte (general)",
-		"Cycling Mononuclear Phagocyte": "Monocyte",
-		"Descending Thin Limb Type 1": "Descending Thin Limb Cell Type 1",
-		"Descending Thin Limb Type 2": "Descending Thin Limb Cell Type 2",
-		"Descending Thin Limb Type 3": "Descending Thin Limb Cell Type 3",
-		"Descending Vasa Recta Endothelial": "Descending Vasa Recta Endothelial Cell",
-		"Distal Convoluted Tubule Type 1": "Distal Convoluted Tubule Cell Type 1",
-		"Distal Convoluted Tubule Type 2": "Distal Convoluted Tubule Cell Type 1",
-		"Fibroblast": "Fibroblast",
-		"Glomerular Capillary Endothelial": "Glomerular Capillary Endothelial Cell",
-		"Inner Medullary Collecting Duct": "Inner Medullary Collecting Duct Cell",
-		"Intercalated Type B": "Intercalated Cell Type B",
-		"Lymphatic Endothelial": "Lymphatic Endothelial Cell",
-		"M2 Macrophage": "M2-Macrophage",
-		"Macula Densa": "Macula Densa cell",
-		"Mast": "Mast cell",
-		"Medullary Fibroblast": "Fibroblast",
-		"Medullary Thick Ascending Limb": "Medullary Thick Ascending Limb Cell",
-		"Mesangial": "Mesangial Cell",
-		"Monocyte-derived": "Monocyte",
-		"Natural Killer T": "Natural Killer T Cell",
-		"Neutrophil": "Neutrophil",
-		"Non-classical monocyte": "non Classical Monocyte",
-		"Outer Medullary Collecting Duct Intercalated Type A": "Outer Medullary Collecting Duct Intercalated Cell Type A",
-		"Outer Medullary Collecting Duct Principal": "Outer Medullary Collecting Duct Principal Cell",
-		"Papillary Tip Epithelial": "Endothelial",
-		"Parietal Epithelial": "Parietal Epithelial Cell",
-		"Peritubular Capilary Endothelial": "Peritubular Capillary Endothelial Cell",
-		"Plasma": "Plasma cell",
-		"Plasmacytoid Dendritic": "Dendritic Cell (plasmatoid)",
-		"Podocyte": "Podocyte",
-		"Proximal Tubule Epithelial Segment 1": "Proximal Tubule Epithelial Cell Segment 1",
-		"Proximal Tubule Epithelial Segment 2": "Proximal Tubule Epithelial Cell Segment 2",
-		"Proximal Tubule Epithelial Segment 3": "Proximal Tubule Epithelial Cell Segment 3",
-		"Renin-positive Juxtaglomerular Granular": "Juxtaglomerular granular cell (Renin positive)",
-		"Schwann / Neural": "other",
-		"T": "T Cell",
-		"Vascular Smooth Muscle / Pericyte": "Vascular Smooth Muscle Cell/Pericyte (general)"
-	}
-}
+    "versions": {
+        "azimuth_reference": {
+            "version": "1.0.1",
+            "annotation_level": "annotation.l3",
+            "organ": "kidney",
+            "doi": "10.5281/zenodo.5181818"
+        },
+        "CL_version": "v2023-01-09",
+        "mapping_version": "0.2"
+    },
+    "reviewers": [
+        {
+            "name": "Jonathan C. Silverstein",
+            "ORCID": "0000-0002-9252-6039"
+        }, 
+        {
+            "name": "Sanjay Jain",
+            "ORCID": "0000-0003-2804-127X"
+        }, 
+        {
+            "name": "Ellen M. Quardokus",
+            "ORCID": "0000-0001-7655-4833"
+        }
+    ],
+    "disclaimers": [
+        {
+            "text": "Azimuth reference labels have been converted to closest corresponding cell ontologies."
+        }
+    ],
+    "mapping": {
+        "Afferent / Efferent Arteriole Endothelial": "CL:1000412",
+        "Ascending Thin Limb": "CL:1001107",
+        "Ascending Vasa Recta Endothelial": "CL:1001131",
+        "B": "CL:0000236",
+        "Classical Dendritic": "CL:0000990",
+        "Connecting Tubule": "CL:1000768",
+        "Connecting Tubule Intercalated Type A": "CL:4030020",
+        "Connecting Tubule Principal": "CL:4030018",
+        "Cortical Collecting Duct Intercalated Type A": "CL:1000715",
+        "Cortical Collecting Duct Principal": "CL:1000714",
+        "Cortical Thick Ascending Limb": "CL:1001109",
+        "Cortical Vascular Smooth Muscle / Pericyte": "CL:1001318",
+        "Cycling Mononuclear Phagocyte": "CL:0000113",
+        "Descending Thin Limb Type 1": "CL:4030012",
+        "Descending Thin Limb Type 2": "CL:4030013",
+        "Descending Thin Limb Type 3": "CL:4030014",
+        "Descending Vasa Recta Endothelial": "CL:1001285",
+        "Distal Convoluted Tubule Type 1": "CL:4030016",
+        "Distal Convoluted Tubule Type 2": "CL:4030017",
+        "Fibroblast": "CL:0000057",
+        "Glomerular Capillary Endothelial": "CL:1001005",
+        "Inner Medullary Collecting Duct": "CL:1000718",
+        "Intercalated Type B": "CL:0002201",
+        "Lymphatic Endothelial": "CL:0002138",
+        "M2 Macrophage": "CL:1000698",
+        "Macula Densa": "CL:1000850",
+        "Mast": "CL:0000097",
+        "Medullary Fibroblast": "CL:4030022",
+        "Medullary Thick Ascending Limb": "CL:1001108",
+        "Mesangial": "CL:0000650",
+        "Monocyte-derived": "CL:0011031",
+        "Natural Killer T": "CL:0000814",
+        "Neutrophil": "CL:0000775",
+        "Non-classical monocyte": "CL:0000875",
+        "Outer Medullary Collecting Duct Intercalated Type A": "CL:1000717",
+        "Outer Medullary Collecting Duct Principal": "CL:1000716",
+        "Papillary Tip Epithelial": "CL:1000597",
+        "Parietal Epithelial": "CL:1000452",
+        "Peritubular Capilary Endothelial": "CL:1001033",
+        "Plasma": "CL:0000786",
+        "Plasmacytoid Dendritic": "CL:0000784",
+        "Podocyte": "CL:0000653",
+        "Proximal Tubule Epithelial Segment 1": "CL:4030009",
+        "Proximal Tubule Epithelial Segment 2": "CL:4030010",
+        "Proximal Tubule Epithelial Segment 3": "CL:4030011",
+        "Renin-positive Juxtaglomerular Granular": "CL:0000648",
+        "Schwann / Neural": "CL:0002573",
+        "T": "CL:0000084",
+        "Vascular Smooth Muscle / Pericyte": "CL:1001318"
+    }
+}    
