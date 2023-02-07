@@ -6,7 +6,7 @@ library(anndata)
 library(rjson)
 
 args <- commandArgs(trailingOnly=TRUE)
-organ.code <- args[1]  # currently, 'kidney' and 'lung' are the two supported references
+organ.code <- args[1]  # currently, 'kidney', 'lung', and 'heart' are the three supported references
 query.h5.path <- args[2]  # path to raw counts matrix 
 save.h5.path <- args[3] 
 
@@ -28,6 +28,9 @@ if (organ.code %in% c("RK", "LK", "RL", "LL")) {
   } else if (organ.code %in% c("RL", "LL")) {
     reference.path = "/opt/human_lung"
     reference.name = "lung"
+  } else if (organ.code %in% "Heart") { # change to actual code
+    reference.path = "/opt/human_heart"
+    reference.name = "heart"
   }
   if (!dir.exists(reference.path)) {
     stop("Reference path does not exist ", reference.path, call. = FALSE)
