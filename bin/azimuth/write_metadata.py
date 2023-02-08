@@ -22,17 +22,16 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
     annotations_df = pd.read_csv(annotations_csv)
     if (metadata["is_annotated"]):  # annotation was performed
         annotations_df.index = ad.obs.index  # set index for proper concatentation
-
-        if (metadata["azimuth_reference"]["name"] == c("lung", "heart", "kidney"):
+        if (metadata["azimuth_reference"]["name"] in ["lung", "heart", "kidney"]):
             #ad.obs = pd.concat([ad.obs, annotations_df], axis=1)
-            file = metadata["azimuth_reference"]["name"] + ".json")
-            with open(file) as f: 
+            file = metadata["azimuth_reference"]["name"] + ".json"
+            with open("/" + file) as f: 
               mapping = json.load(f)
             
             # get mapping annotation name
             azimuth_annotation_name = "predicted." + mapping["versions"]["azimuth_reference"]["annotation_level"]
             clid_annotations_name = "predicted.CLID"
-            metadata["annotation_names"] = [predicted.CLID, predicted.CLID + ".score"]
+            metadata["annotation_names"] = [clid_annotations_name, clid_annotations_name + ".score"]
             # make sure the azimuth reference version matches the azimuth reference version used in the mapping
             if metadata["azimuth_reference"]["version"] != mapping["versions"]["azimuth_reference"]["version"]:
                 warnings.warn(
