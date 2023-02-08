@@ -20,7 +20,7 @@ if (!file.exists(query.h5.path)) {
   stop("Path to secondary_analysis.h5ad ", save.h5.path, call. = FALSE)
 }
 
-if (organ.code %in% c("RK", "LK", "RL", "LL")) {
+if (organ.code %in% c("RK", "LK", "RL", "LL", "Heart")) {
   # reference.path points to path within docker image
   if (organ.code %in% c("RK", "LK")) {
     reference.path = "/opt/human_kidney"
