@@ -2,7 +2,7 @@
     "versions": {
         "azimuth_reference": {
             "version": "1.0.0",
-            "annotation_level": "annotation.l2",
+            "annotation_level": "celltype.l2",
             "organ": "heart",
             "doi": "10.5281/zenodo.7032964"
         },
