@@ -1,0 +1,94 @@
+{ "kidney": {
+    "versions": {
+        "azimuth_reference": {
+            "version": "1.0.1",
+            "annotation_level": "annotation.l3",
+            "organ": "kidney",
+            "doi": "10.5281/zenodo.5181818"
+        },
+        "CL_version": "v2023-01-09",
+        "mapping_version": "0.2"
+    },
+    "reviewers": [
+        {
+            "name": "Jonathan C. Silverstein",
+            "ORCID": "0000-0002-9252-6039"
+        }, 
+        {
+            "name": "Sanjay Jain",
+            "ORCID": "0000-0003-2804-127X"
+        }, 
+        {
+            "name": "Ellen M. Quardokus",
+            "ORCID": "0000-0001-7655-4833"
+        },
+        {
+            "name": "Gesmira Molla",
+            "ORCID": "0000-0002-8628-5056"
+        }
+    ],
+    "disclaimer": "Azimuth reference labels have been converted to closest corresponding cell ontologies."
+}, 
+"heart": {
+    "versions": {
+        "azimuth_reference": {
+            "version": "1.0.0",
+            "annotation_level": "celltype.l2",
+            "organ": "heart",
+            "doi": "10.5281/zenodo.7032964"
+        },
+        "CL_version": "v2023-01-09",
+        "mapping_version": "0.1"
+    },
+    "reviewers": [
+        {
+            "name": "Jonathan C. Silverstein",
+            "ORCID": "0000-0002-9252-6039"
+        }, 
+        {
+            "name": "Marc Halushka",
+            "ORCID": "0000-0002-7112-7389"
+        }, 
+        {
+            "name": "Ellen M. Quardokus",
+            "ORCID": "0000-0001-7655-4833"
+        },
+        {
+            "name": "Gesmira Molla",
+            "ORCID": "0000-0002-8628-5056"
+        }
+    ],
+    "disclaimer": "Azimuth reference labels have been converted to closest corresponding cell ontologies."
+},
+"lung": {
+    "versions": {
+        "azimuth_reference": {
+            "version": "2.0.0",
+            "annotation_level": "ann_finest_level",
+            "organ": "lung",
+            "doi": "10.5281/zenodo.6342228"
+        },
+        "CL_version": "v2023-01-09",
+        "mapping_version": "0.1"
+    },
+    "reviewers": [
+        {
+            "name": "Jonathan C. Silverstein",
+            "ORCID": "0000-0002-9252-6039"
+        }, 
+        {
+            "name": "Gloria Pryhuber",
+            "ORCID": "0000-0002-9185-3994"
+        }, 
+        {
+            "name": "Ellen M. Quardokus",
+            "ORCID": "0000-0001-7655-4833"
+        },
+        {
+            "name": "Gesmira Molla",
+            "ORCID": "0000-0002-8628-5056"
+        }
+    ],
+    "disclaimer": "Azimuth reference labels have been converted to closest corresponding cell ontologies."
+}
+}

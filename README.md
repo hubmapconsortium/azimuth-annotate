@@ -18,17 +18,18 @@ repository, check out a tag, and invoke the pipeline as::
 ```
 cwltool pipeline.cwl --matrix EXPR_H5AD --reference REFERENCE --secondary-analysis-matrix SECONDARY_ANALYSIS_H5AD
 ```
-The supported values for ``--reference`` are ``RK``, ``LK``, ``RL``, or ``LL``. These two character codes indicate the side the organ was derived from (right or left) and the organ type (kidney or lung). If the value for ``--reference`` doesn't match one of the four options, the workflow will run without performing annotation.
+The supported values for ``--reference`` are ``RK``, ``LK``, ``RL``, ``LL``, ``HT``. These two character codes indicate the side the organ was derived from (if applicable) and the organ type (kidney, lung, or heart). If the value for ``--reference`` doesn't match one of the five options, the workflow will run without performing annotation.
 
-Azimuth to ASCT+B Cell Type Mapping
+Azimuth to Cell Ontology Mapping
 -------------------------
 
-The mapping from Azimuth cell types to ASCT+B cell types is described in JSON format in the ``data`` directory. There will be one mapping for each supported organ type and each mapping will follow the same format. The JSON contains two keys - ``versions`` and ``mapping``. ``mapping`` contains keys representing Azimuth cell types with values corresponding to ASCT+B cell types. ``versions`` contains three keys described below:
+The mapping from Azimuth cell types to Cell Ontology IDs is described in csv format in the ``data`` directory. Each Azimuth label for each organ maps to a corresponding Azimuth ID, CL ID, and standardized label. There is also associated metadata for each organ in ``all_metadata.json`` in the ``data`` directory. The JSON contains a key per organ. Within each organ's metadata there are the same three keys: ``versions``,  ``reviewers``,  and ``disclaimer``. ``versions`` contains the three keys described below:
 
 Key | Description
 --- | ---
-azimuth_reference | ``version`` of Azimuth. ``organ`` used. ``annotation_level`` indicates which Azimuth annotations were used for the mapping since there are usually multiple per reference.
-ASCTB | The version of ASCTB annotation used in mapping.
+azimuth_reference | ``version`` of Azimuth. ``organ`` used. ``annotation_level`` indicates which Azimuth annotations were used for the mapping since there are usually multiple per reference. ``doi`` of the Azimuth reference. 
+CL_version | The version of Cell Ontology used in mapping.
 mapping_version | The version of table itself, as it could hypothetically change independent of Azimuth and ASCTB versions.
+
 
 Mapping tables are pulled into this workflow's Docker image, so for updates to be propogated the new Docker image will need to be pushed to Docker Hub.
