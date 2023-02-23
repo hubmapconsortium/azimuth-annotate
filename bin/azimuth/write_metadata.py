@@ -35,13 +35,13 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
 
             # get mapping annotation name
             azimuth_annotation_name = "predicted." + organ_metadata["versions"]["azimuth_reference"]["annotation_level"]
+            azimuth_label = "azimuth_label"
             azimuth_id = "azimuth_id"
             cl_id = "predicted_CLID"
             standardized_label = "predicted_label"  
             score = "prediction_score"
-            azimuth_label = "azimuth_label"
-
             metadata["annotation_names"] = [azimuth_label, azimuth_id, cl_id, standardized_label, score]
+
             # make sure the azimuth reference version matches the azimuth reference version used in the mapping
             if metadata["azimuth_reference"]["version"] != organ_metadata["versions"]["azimuth_reference"]["version"]:
                 warnings.warn(
@@ -51,18 +51,18 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
                     {organ_metadata['versions']['azimuth_reference']['version']}"
                 )
 
-            # get mapping csv 
+            # get mapping data for organ
             mapping_df = pd.read_csv('/all_labels.csv')
-            # pull mapping for organ 
             organ_annotation = organ_code + "_" + organ_metadata["versions"]["azimuth_reference"]["annotation_level"]
             mapping_df = mapping_df.loc[mapping_df['Organ_Level'] == organ_annotation]
+
             # make dictionary for mapping 
             keys = mapping_df['A_L'].tolist()
             a_id_map = mapping_df['A_ID'].tolist()
             cl_id_map = mapping_df['CL_ID'].tolist()
             standardized_label_map = mapping_df['Label'].tolist()
-
             mapping_dict = dict(zip(keys, zip(a_id_map, cl_id_map, standardized_label_map)))
+
             ad.obs[azimuth_label] = annotations_df[azimuth_annotation_name]
             # if a key does not exist it will quietly map to other instead of hitting a KeyError
             ad.obs[[azimuth_id, cl_id, standardized_label]] = pd.DataFrame([mapping_dict.get(a.strip(), ["other"]*3) 
