@@ -63,7 +63,6 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
             standardized_label_map = mapping_df['Label'].tolist()
 
             mapping_dict = dict(zip(keys, zip(a_id_map, cl_id_map, standardized_label_map)))
-            print(mapping_dict)
             ad.obs[azimuth_label] = annotations_df[azimuth_annotation_name]
             # if a key does not exist it will quietly map to other instead of hitting a KeyError
             ad.obs[[azimuth_id, cl_id, standardized_label]] = pd.DataFrame([mapping_dict.get(a.strip(), ["other"]*3) 
@@ -74,7 +73,6 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
             # add additional metadata to 'annotation_metadata' when running
             metadata["CLID"] = {"version": organ_metadata["versions"]["CL_version"]}
             metadata["azimuth_to_CLID_mapping"] = {"version": organ_metadata["versions"]["mapping_version"]}
-            print(organ_metadata["reviewers"])
             for (i, key) in enumerate(organ_metadata["reviewers"]):
                 metadata["reviewer" + str(i + 1)] = key
             metadata["disclaimers"] = {"text": organ_metadata["disclaimer"]}
