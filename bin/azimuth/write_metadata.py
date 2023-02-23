@@ -20,18 +20,15 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
     ad = anndata.read_h5ad(secondary_analysis_h5ad)
 
     annotations_df = pd.read_csv(annotations_csv)
-    print(annotations_df)
     if (metadata["is_annotated"]):  # annotation was performed
         annotations_df.index = ad.obs.index  # set index for proper concatentation
-        if (metadata["azimuth_reference"]["name"] in ["lung", "heart", "kidney"]):
+        organ = metadata["azimuth_reference"]["name"]
+        if (organ in ["lung", "heart", "kidney"]):
             #ad.obs = pd.concat([ad.obs, annotations_df], axis=1)
             with open("/all_metadata.json", 'r') as j:
-                data = json.loads(j.read())
+                all_data = json.loads(j.read())
             # for organ value in json file, pull out info 
-            organ_code = metadata["azimuth_reference"]["name"]
-            print(organ_code)
-            organ_metadata = data[organ_code]
-            print(organ_metadata)
+            organ_metadata = all_data[organ]
 
             # get mapping annotation name
             azimuth_annotation_name = "predicted." + organ_metadata["versions"]["azimuth_reference"]["annotation_level"]
@@ -53,7 +50,7 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
 
             # get mapping data for organ
             mapping_df = pd.read_csv('/all_labels.csv')
-            organ_annotation = organ_code + "_" + organ_metadata["versions"]["azimuth_reference"]["annotation_level"]
+            organ_annotation = organ + "_" + organ_metadata["versions"]["azimuth_reference"]["annotation_level"]
             mapping_df = mapping_df.loc[mapping_df['Organ_Level'] == organ_annotation]
 
             # make dictionary for mapping 
