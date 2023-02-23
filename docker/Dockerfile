@@ -38,3 +38,8 @@ RUN mkdir /opt/human_lung
 RUN wget -q --no-check-certificate https://zenodo.org/record/6342228/files/idx.annoy -O /opt/human_lung/idx.annoy
 RUN wget -q --no-check-certificate https://zenodo.org/record/6342228/files/ref.Rds -O /opt/human_lung/ref.Rds
 
+# human heart reference
+RUN mkdir /opt/human_heart
+RUN wget -q --no-check-certificate https://zenodo.org/record/7032964/files/idx.annoy -O /opt/human_heart/idx.annoy
+RUN wget -q --no-check-certificate https://zenodo.org/record/7032964/files/ref.Rds -O /opt/human_heart/ref.Rds
+

@@ -22,34 +22,57 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
     annotations_df = pd.read_csv(annotations_csv)
     if (metadata["is_annotated"]):  # annotation was performed
         annotations_df.index = ad.obs.index  # set index for proper concatentation
-
-        if (metadata["azimuth_reference"]["name"] == "lung"):
-            ad.obs = pd.concat([ad.obs, annotations_df], axis=1)
-        elif (metadata["azimuth_reference"]["name"] == "kidney"): # map kidney ASCT+B annotations
-            with open("/kidney.json") as f:
-                mapping = json.load(f)
+        organ = metadata["azimuth_reference"]["name"]
+        if (organ in ["lung", "heart", "kidney"]):
+            #ad.obs = pd.concat([ad.obs, annotations_df], axis=1)
+            with open("/all_metadata.json", 'r') as j:
+                all_data = json.loads(j.read())
+            # for organ value in json file, pull out info 
+            organ_metadata = all_data[organ]
 
             # get mapping annotation name
-            azimuth_annotation_name = "predicted." + mapping["versions"]["azimuth_reference"]["annotation_level"]
-            asct_annotations_name = "predicted.ASCT.celltype"
-            metadata["annotation_names"] = [asct_annotations_name, asct_annotations_name + ".score"]
+            azimuth_annotation_name = "predicted." + organ_metadata["versions"]["azimuth_reference"]["annotation_level"]
+            azimuth_label = "azimuth_label"
+            azimuth_id = "azimuth_id"
+            cl_id = "predicted_CLID"
+            standardized_label = "predicted_label"  
+            score = "prediction_score"
+            metadata["annotation_names"] = [azimuth_label, azimuth_id, cl_id, standardized_label, score]
+
             # make sure the azimuth reference version matches the azimuth reference version used in the mapping
-            if metadata["azimuth_reference"]["version"] != mapping["versions"]["azimuth_reference"]["version"]:
+            if metadata["azimuth_reference"]["version"] != organ_metadata["versions"]["azimuth_reference"]["version"]:
                 warnings.warn(
                     f"The Azimuth reference version does not match the \
                     Azimuth reference version used to generate the mapping! \
                     {metadata['azimuth_reference']['version']} vs \
-                    {mapping['versions']['azimuth_reference']['version']}"
+                    {organ_metadata['versions']['azimuth_reference']['version']}"
                 )
 
+            # get mapping data for organ
+            mapping_df = pd.read_csv('/all_labels.csv')
+            organ_annotation = organ + "_" + organ_metadata["versions"]["azimuth_reference"]["annotation_level"]
+            mapping_df = mapping_df.loc[mapping_df['Organ_Level'] == organ_annotation]
+
+            # make dictionary for mapping 
+            keys = mapping_df['A_L'].tolist()
+            a_id_map = mapping_df['A_ID'].tolist()
+            cl_id_map = mapping_df['CL_ID'].tolist()
+            standardized_label_map = mapping_df['Label'].tolist()
+            mapping_dict = dict(zip(keys, zip(a_id_map, cl_id_map, standardized_label_map)))
+
+            ad.obs[azimuth_label] = annotations_df[azimuth_annotation_name]
             # if a key does not exist it will quietly map to other instead of hitting a KeyError
-            asct_annotations = [mapping["mapping"].get(a.strip(), "other") for a in annotations_df[azimuth_annotation_name]]
-            ad.obs[asct_annotations_name] = asct_annotations
-            ad.obs[asct_annotations_name + ".score"] = annotations_df[azimuth_annotation_name + ".score"]
+            ad.obs[[azimuth_id, cl_id, standardized_label]] = pd.DataFrame([mapping_dict.get(a.strip(), ["other"]*3) 
+                                                                            for a in annotations_df[azimuth_annotation_name]], 
+                                                                            index = ad.obs.index)
+            ad.obs[score] = annotations_df[azimuth_annotation_name + ".score"]
 
             # add additional metadata to 'annotation_metadata' when running
-            metadata["ASCTB"] = {"version": mapping["versions"]["ASCTB"]}
-            metadata["azimuth_to_ASCTB_mapping"] = {"version": mapping["versions"]["mapping_version"]}
+            metadata["CLID"] = {"version": organ_metadata["versions"]["CL_version"]}
+            metadata["azimuth_to_CLID_mapping"] = {"version": organ_metadata["versions"]["mapping_version"]}
+            for (i, key) in enumerate(organ_metadata["reviewers"]):
+                metadata["reviewer" + str(i + 1)] = key
+            metadata["disclaimers"] = {"text": organ_metadata["disclaimer"]}
 
     ad.uns[
         "annotation_metadata"
