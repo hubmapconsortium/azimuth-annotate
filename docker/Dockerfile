@@ -25,9 +25,6 @@ RUN R -e "remotes::install_github(c('satijalab/seurat-data', 'satijalab/azimuth'
 ARG AZIMUTH_VER=unknown
 RUN echo "$AZIMUTH_VER"
 
-COPY bin/azimuth .
-COPY data .
-
 # human kidney reference
 RUN mkdir /opt/human_kidney
 RUN wget -q --no-check-certificate https://zenodo.org/record/5181818/files/idx.annoy -O /opt/human_kidney/idx.annoy
@@ -42,4 +39,7 @@ RUN wget -q --no-check-certificate https://zenodo.org/record/6342228/files/ref.R
 RUN mkdir /opt/human_heart
 RUN wget -q --no-check-certificate https://zenodo.org/record/7032964/files/idx.annoy -O /opt/human_heart/idx.annoy
 RUN wget -q --no-check-certificate https://zenodo.org/record/7032964/files/ref.Rds -O /opt/human_heart/ref.Rds
+
+COPY bin/azimuth .
+COPY data .
 
