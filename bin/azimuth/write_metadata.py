@@ -36,8 +36,9 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
             azimuth_id = "azimuth_id"
             cl_id = "predicted_CLID"
             standardized_label = "predicted_label"  
+            match = "cl_match_type"
             score = "prediction_score"
-            metadata["annotation_names"] = [azimuth_label, azimuth_id, cl_id, standardized_label, score]
+            metadata["annotation_names"] = [azimuth_label, azimuth_id, cl_id, standardized_label, match, score]
 
             # make sure the azimuth reference version matches the azimuth reference version used in the mapping
             if metadata["azimuth_reference"]["version"] != organ_metadata["versions"]["azimuth_reference"]["version"]:
@@ -58,11 +59,12 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
             a_id_map = mapping_df['A_ID'].tolist()
             cl_id_map = mapping_df['CL_ID'].tolist()
             standardized_label_map = mapping_df['Label'].tolist()
-            mapping_dict = dict(zip(keys, zip(a_id_map, cl_id_map, standardized_label_map)))
+            match_map = mapping_df['CL_Match'].tolist()
+            mapping_dict = dict(zip(keys, zip(a_id_map, cl_id_map, standardized_label_map, match_map)))
 
             ad.obs[azimuth_label] = annotations_df[azimuth_annotation_name]
             # if a key does not exist it will quietly map to other instead of hitting a KeyError
-            ad.obs[[azimuth_id, cl_id, standardized_label]] = pd.DataFrame([mapping_dict.get(a.strip(), ["other"]*3) 
+            ad.obs[[azimuth_id, cl_id, standardized_label, match]] = pd.DataFrame([mapping_dict.get(a.strip(), ["other"]*4) 
                                                                             for a in annotations_df[azimuth_annotation_name]], 
                                                                             index = ad.obs.index)
             ad.obs[score] = annotations_df[azimuth_annotation_name + ".score"]
