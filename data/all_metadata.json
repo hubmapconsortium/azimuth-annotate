@@ -64,7 +64,7 @@
     "versions": {
         "azimuth_reference": {
             "version": "2.0.0",
-            "annotation_level": "ann_finest_level",
+            "annotation_level": "ann.finest_level",
             "organ": "lung",
             "doi": "10.5281/zenodo.6342228"
         },
