@@ -23,7 +23,7 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
     if (metadata["is_annotated"]):  # annotation was performed
         annotations_df.index = ad.obs.index  # set index for proper concatentation
         organ = metadata["azimuth_reference"]["name"]
-        if (organ in ["lung", "heart", "kidney"]):
+        if (organ in ["lung", "heart", "kidney", "liver"]):
             #ad.obs = pd.concat([ad.obs, annotations_df], axis=1)
             with open("/all_metadata.json", 'r') as j:
                 all_data = json.loads(j.read())
