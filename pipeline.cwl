@@ -3,6 +3,9 @@ class: Workflow
 cwlVersion: v1.0
 
 inputs:
+  assay:
+    label: "single-cell/nucleus assay"
+    type: string
   reference:
     label: "Reference type to map data to"
     type: string
@@ -20,13 +23,22 @@ outputs:
     label: "final secondary analysis matrix with all labels and metadata"
 
 steps:
+  expr_h5ad_adjust:
+    run: steps/expr-h5ad-adjust.cwl
+    in:
+      assay:
+        source: assay
+      matrix:
+        source: matrix
+    out:
+      - matrix_adj
   azimuth:
     run: steps/azimuth-annotate.cwl
     in:
       reference:
         source: reference
       matrix:
-        source: matrix
+        source: expr_h5ad_adjust/matrix_adj
       secondary_analysis_matrix:
         source: secondary-analysis-matrix
     out:
