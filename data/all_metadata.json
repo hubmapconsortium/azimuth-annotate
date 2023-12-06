@@ -90,5 +90,32 @@
         }
     ],
     "disclaimer": "Azimuth reference labels have been converted to closest corresponding cell ontologies."
+}, 
+"liver": {
+    "versions": {
+        "azimuth_reference": {
+            "version": "1.0.0",
+            "annotation_level": "celltype.l2",
+            "organ": "liver",
+            "doi": "10.5281/zenodo.7770308"
+        },
+        "CL_version": "",
+        "mapping_version": "0.1"
+    },
+    "reviewers": [
+        {
+            "name": "Jonathan C. Silverstein",
+            "ORCID": "0000-0002-9252-6039"
+        }, 
+        {
+            "name": "Gesmira Molla",
+            "ORCID": "0000-0002-8628-5056"
+        },
+        {
+            "name": "EBI",
+            "ORCID": ""
+        }
+    ],
+    "disclaimer": "Azimuth reference labels have been converted to closest corresponding cell ontologies."
 }
 }
