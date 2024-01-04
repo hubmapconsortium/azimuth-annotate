@@ -32,6 +32,13 @@ steps:
         source: matrix
     out:
       - matrix_adj
+  extract_rna_secondary_matrix:
+    run: steps/extract-rna-secondary-matrix.cwl
+    in:
+      secondary_analysis_matrix:
+        source: secondary-analysis-matrix
+    out:
+      - rna_secondary_analysis_matrix
   azimuth:
     run: steps/azimuth-annotate.cwl
     in:
@@ -40,7 +47,7 @@ steps:
       matrix:
         source: expr_h5ad_adjust/matrix_adj
       secondary_analysis_matrix:
-        source: secondary-analysis-matrix
+        source: extract_rna_secondary_matrix/rna_secondary_analysis_matrix
     out:
       - annotated_matrix
       - version_metadata
@@ -48,6 +55,8 @@ steps:
   write_metadata:
     run: steps/write-metadata.cwl
     in:
+      orig_secondary_analysis_matrix:
+        source: secondary_analysis_matrix
       secondary_analysis_matrix:
         source: azimuth/annotated_matrix
       annotations_csv:

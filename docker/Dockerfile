@@ -16,7 +16,7 @@ RUN gcc -O2 -fPIC -shared lzf/*.c lzf_filter.c -I /usr/include/hdf5/serial/ -lhd
 WORKDIR /
 ENV HDF5_PLUGIN_PATH=/lzf
 
-RUN pip install anndata==0.7.8
+RUN pip install anndata==0.7.8 muon==0.1.5
 RUN R --no-echo -e "BiocManager::install(c('glmGamPoi'))"
 RUN R --no-echo -e "install.packages(c('anndata', 'DT', 'future', 'ggplot2',  'googlesheets4', 'hdf5r', 'htmltools', 'httr', 'patchwork', 'rlang', 'shiny', 'shinyBS', 'shinydashboard', 'shinyjs', 'stringr', 'withr'), repo='https://cloud.r-project.org')"
 RUN R --no-echo -e "remotes::install_github('immunogenomics/presto', dependencies = FALSE)"

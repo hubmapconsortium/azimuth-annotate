@@ -8,6 +8,10 @@ requirements:
 baseCommand: [python3, /write_metadata.py]
 
 inputs:
+  orig_secondary_analysis_matrix:
+    type: File
+    inputBinding:
+      position: 0
   secondary_analysis_matrix:
     type: File
     inputBinding:
@@ -23,6 +27,10 @@ inputs:
 
 outputs:
   annotated_matrix:
-    type: File
+    type: File?
     outputBinding:
       glob: "secondary_analysis.h5ad"
+  annotated_multiome_matrix:
+    type: File?
+    outputBinding:
+      glob: "multiome_normalized.h5ad"
