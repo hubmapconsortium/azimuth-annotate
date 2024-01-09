@@ -29,8 +29,4 @@ outputs:
   annotated_matrix:
     type: File?
     outputBinding:
-      glob: "secondary_analysis.h5ad"
-  annotated_multiome_matrix:
-    type: File?
-    outputBinding:
-      glob: "multiome_normalized.h5ad"
+      glob: "secondary_analysis*"
