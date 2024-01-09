@@ -1,12 +1,7 @@
 [
 	{
-		"pattern": "secondary_analysis\\.h5ad",
+		"pattern": "secondary_analysis\\.*",
 		"description": "Normalized gene expression with additional metadata, in HDF5 format, readable with the 'anndata' Python package",
-		"edam_ontology_term": "EDAM_1.24.format_3590"
-	},
-	{
-		"pattern": "multiome_normalized\\.h5mu",
-		"description": "Normalized gene expression and chromatin accessibility with additional metadata, in HDF5 format, readable with the 'muon' Python package",
 		"edam_ontology_term": "EDAM_1.24.format_3590"
 	}
 ]

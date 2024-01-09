@@ -89,10 +89,6 @@ def main(orig_secondary_analysis_matrix:Path, secondary_analysis_h5ad: Path, ver
     else:
         ad.write("secondary_analysis.h5ad")  # save final secondary analysis matrix
 
-    #Both outputs are optional now, throw an error if neither is written out so that the CWL workflow returns failure
-    if not orig_secondary_analysis_matrix.name.exists() and not Path("secondary_analysis.h5ad").exists():
-        raise ValueError(f"Neither {orig_secondary_analysis_matrix.name} nor secondary_analysis.h5ad written")
-
 
 if __name__ == "__main__":
     p = ArgumentParser()
