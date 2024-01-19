@@ -14,11 +14,11 @@ import muon as mu
 
 def main(secondary_analysis_matrix: Path):
     adata = mu.read(f"{fspath(secondary_analysis_matrix)}/rna") if secondary_analysis_matrix.suffix == ".h5mu" else anndata.read_h5ad(secondary_analysis_matrix)
-    adata.write('secondary_analysis.h5ad')
+    adata.write('secondary_analysis.h5aq:qd')
 
 if __name__ == "__main__":
     p = ArgumentParser()
     p.add_argument("secondary_analysis_matrix", type=Path)
     args = p.parse_args()
 
-    main(args.version_metadata)
+    main(args.secondary_analysis_matrix)

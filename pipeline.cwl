@@ -56,7 +56,7 @@ steps:
     run: steps/write-metadata.cwl
     in:
       orig_secondary_analysis_matrix:
-        source: secondary_analysis_matrix
+        source: secondary-analysis-matrix
       secondary_analysis_matrix:
         source: azimuth/annotated_matrix
       annotations_csv:
