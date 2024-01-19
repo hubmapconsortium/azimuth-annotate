@@ -27,6 +27,6 @@ inputs:
 
 outputs:
   annotated_matrix:
-    type: File?
+    type: File
     outputBinding:
       glob: "secondary_analysis*"

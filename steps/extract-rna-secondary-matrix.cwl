@@ -5,7 +5,7 @@ class: CommandLineTool
 requirements:
   - class: DockerRequirement
     dockerPull: hubmap/azimuth-annotate:1.3
-baseCommand: /opt/expr_h5ad_adjust.py
+baseCommand: [python3, /extract_rna_secondary_matrix.py]
 
 inputs:
   secondary_analysis_matrix:
