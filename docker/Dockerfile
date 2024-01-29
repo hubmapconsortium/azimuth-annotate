@@ -1,7 +1,7 @@
 FROM satijalab/azimuth:0.5.0
 
 
-RUN pip install anndata==0.7.8
+RUN pip install anndata==0.9.2 muon==0.1.5
 RUN R --no-echo -e "BiocManager::install(c('glmGamPoi'))"
 RUN R --no-echo -e "install.packages(c('anndata', 'DT', 'future', 'ggplot2',  'googlesheets4', 'hdf5r', 'htmltools', 'httr', 'patchwork', 'rlang', 'shiny', 'shinyBS', 'shinydashboard', 'shinyjs', 'stringr', 'withr'), repo='https://cloud.r-project.org')"
 RUN R --no-echo -e "remotes::install_github('immunogenomics/presto', dependencies = FALSE)"
