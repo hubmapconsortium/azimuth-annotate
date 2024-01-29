@@ -16,9 +16,10 @@ runtime; we recommend Docker and the ``cwltool`` reference implementation.
 recent Python environment with ``pip install cwltool``. Afterward, clone this
 repository, check out a tag, and invoke the pipeline as::
 ```
-cwltool pipeline.cwl --matrix EXPR_H5AD --reference REFERENCE --secondary-analysis-matrix SECONDARY_ANALYSIS_H5AD
+cwltool pipeline.cwl --matrix EXPR_H5AD --reference REFERENCE --secondary-analysis-matrix SECONDARY_ANALYSIS_H5AD --assay ASSAY
 ```
-The supported values for ``--reference`` are ``RK``, ``LK``, ``RL``, ``LL``, ``HT``. These two character codes indicate the side the organ was derived from (if applicable) and the organ type (kidney, lung, or heart). If the value for ``--reference`` doesn't match one of the five options, the workflow will run without performing annotation.
+The supported values for ``--reference`` are ``RK``, ``LK``, ``RL``, ``LL``, ``HT``. These two character codes indicate the side the organ was derived from (if applicable) and the organ type (kidney, lung, or heart). If the value for ``--reference`` doesn't match one of the five options, the workflow will run without performing annotation. 
+The supported values for ``--assay`` are included [here](https://github.com/hubmapconsortium/expr-h5ad-adjust/blob/main/bin/expr_h5ad_adjust.py).
 
 Azimuth to Cell Ontology Mapping
 -------------------------
