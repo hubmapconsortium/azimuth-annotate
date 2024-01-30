@@ -8,6 +8,10 @@ requirements:
 baseCommand: [python3, /write_metadata.py]
 
 inputs:
+  orig_secondary_analysis_matrix:
+    type: File
+    inputBinding:
+      position: 0
   secondary_analysis_matrix:
     type: File
     inputBinding:
@@ -25,4 +29,4 @@ outputs:
   annotated_matrix:
     type: File
     outputBinding:
-      glob: "secondary_analysis.h5ad"
+      glob: "secondary_analysis*"
