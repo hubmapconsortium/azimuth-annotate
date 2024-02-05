@@ -93,31 +93,32 @@ if (organ.code %in% c("RK", "LK", "RL", "LL", "HT")) {
   }
 
   # Preprocess with SCTransform
-  query <- SCTransform(
-    object = query,
-    assay = "RNA",
-    new.assay.name = "refAssay",
-    residual.features = rownames(x = reference$map),
-    reference.SCT.model = reference$map[["refAssay"]]@SCTModel.list$refmodel,
-    method = 'glmGamPoi',
-    ncells = 2000,
-    n_genes = 2000,
-    do.correct.umi = FALSE,
-    do.scale = FALSE,
-    do.center = TRUE
-  )
+  #query <- SCTransform(
+   # object = query,
+   # assay = "RNA",
+   # new.assay.name = "refAssay",
+   # residual.features = rownames(x = reference$map),
+   # reference.SCT.model = reference$map[["refAssay"]]@SCTModel.list$refmodel,
+   # method = 'glmGamPoi',
+   # ncells = 2000,
+   # n_genes = 2000,
+   # do.correct.umi = FALSE,
+   # do.scale = FALSE,
+   # do.center = TRUE
+  #)
 
   # Find anchors between query and reference
+  assay <- DefaultAssay(query)
   anchors <- FindTransferAnchors(
     reference = reference$map,
     query = query,
     k.filter = NA,
     reference.neighbors = "refdr.annoy.neighbors",
     reference.assay = "refAssay",
-    query.assay = "refAssay",
+    query.assay = assay, 
     reference.reduction = "refDR",
     normalization.method = "SCT",
-    features = intersect(rownames(x = reference$map), VariableFeatures(object = query)),
+    features = rownames(Loadings(reference$map[["refDR"]])),
     dims = 1:max.dims,
     n.trees = 20,
     mapping.score.k = 100

@@ -1,10 +1,10 @@
 FROM satijalab/azimuth:0.5.0
 
 RUN pip install anndata==0.9.2 muon==0.1.5
+RUN R --no-echo -e "options(repos = list(CRAN = 'http://cran.rstudio.com')); remotes::install_version('Matrix', version = '1.6.1.1')"
 RUN R --no-echo -e "BiocManager::install(c('glmGamPoi'))"
 RUN R --no-echo -e "install.packages(c('anndata', 'DT', 'future', 'ggplot2',  'googlesheets4', 'hdf5r', 'htmltools', 'httr', 'patchwork', 'rlang', 'shiny', 'shinyBS', 'shinydashboard', 'shinyjs', 'stringr', 'withr'), repo='https://cloud.r-project.org')"
 RUN R --no-echo -e "remotes::install_github('immunogenomics/presto', dependencies = FALSE)"
-
 
 COPY bin/azimuth .
 COPY data .
