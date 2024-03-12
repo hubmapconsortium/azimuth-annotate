@@ -6,13 +6,14 @@ RUN R --no-echo -e "BiocManager::install(c('glmGamPoi'))"
 RUN R --no-echo -e "install.packages(c('anndata', 'DT', 'future', 'ggplot2',  'googlesheets4', 'hdf5r', 'htmltools', 'httr', 'patchwork', 'rlang', 'shiny', 'shinyBS', 'shinydashboard', 'shinyjs', 'stringr', 'withr'), repo='https://cloud.r-project.org')"
 RUN R --no-echo -e "remotes::install_github('immunogenomics/presto', dependencies = FALSE)"
 
+
 COPY bin/azimuth .
 COPY data .
 
 # human kidney reference
 RUN mkdir /opt/human_kidney
-RUN wget -q --no-check-certificate https://zenodo.org/record/5181818/files/idx.annoy -O /opt/human_kidney/idx.annoy
-RUN wget -q --no-check-certificate https://zenodo.org/record/5181818/files/ref.Rds -O /opt/human_kidney/ref.Rds
+RUN wget -q --no-check-certificate https://zenodo.org/records/10694842/files/idx.annoy -O /opt/human_kidney/idx.annoy
+RUN wget -q --no-check-certificate https://zenodo.org/records/10694842/files/ref.Rds -O /opt/human_kidney/ref.Rds
 
 # human lung reference
 RUN mkdir /opt/human_lung
