@@ -4,7 +4,7 @@ cwlVersion: v1.0
 class: CommandLineTool
 requirements:
   - class: DockerRequirement
-    dockerPull: hubmap/expr-h5ad-adjust:1.0
+    dockerPull: hubmap/expr-h5ad-adjust:1.2
 baseCommand: /opt/expr_h5ad_adjust.py
 
 inputs:
