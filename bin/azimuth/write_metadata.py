@@ -13,8 +13,10 @@ import warnings
 
 import anndata
 import pandas as pd
+import muon as mu
+from os import fspath
 
-def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv: Path):
+def main(orig_secondary_analysis_matrix:Path, secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv: Path):
     with open(version_metadata, "rb") as f:
         metadata = json.load(f)
     ad = anndata.read_h5ad(secondary_analysis_h5ad)
@@ -79,7 +81,13 @@ def main(secondary_analysis_h5ad: Path, version_metadata: Path, annotations_csv:
     ad.uns[
         "annotation_metadata"
     ] = metadata  # add metadata dict to "annotation_metadata" key in uns
-    ad.write("secondary_analysis.h5ad")  # save final secondary analysis matrix
+
+    if orig_secondary_analysis_matrix.suffix == ".h5mu":
+        mudata = mu.read(orig_secondary_analysis_matrix)
+        mudata.write(orig_secondary_analysis_matrix.name)
+        mu.write(f"{orig_secondary_analysis_matrix.name}/rna", ad)
+    else:
+        ad.write("secondary_analysis.h5ad")  # save final secondary analysis matrix
 
 
 if __name__ == "__main__":
@@ -87,6 +95,7 @@ if __name__ == "__main__":
     p.add_argument("version_metadata", type=Path)
     p.add_argument("secondary_analysis_h5ad", type=Path)
     p.add_argument("annotations_csv", type=Path)
+    p.add_argument("orig_secondary_analysis_matrix", type=Path)
     args = p.parse_args()
 
-    main(args.version_metadata, args.secondary_analysis_h5ad, args.annotations_csv)
+    main(args.version_metadata, args.secondary_analysis_h5ad, args.annotations_csv, args.orig_secondary_analysis_matrix)
