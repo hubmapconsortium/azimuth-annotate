@@ -124,10 +124,10 @@ if (organ.code %in% c("RK", "LK", "RL", "LL", "HT")) {
     mapping.score.k = 100
   )
 
-# Fix for NA values 
-cell_embeddings <- anchors@object.list[[1]][["pcaproject"]]@cell.embeddings
-cell_embeddings[rowSums(is.na(cell_embeddings)) == ncol(cell_embeddings), ] <- 0
-anchors@object.list[[1]][["pcaproject"]]@cell.embeddings <- cell_embeddings
+  # Fix for NA values 
+  cell_embeddings <- anchors@object.list[[1]][["pcaproject"]]@cell.embeddings
+  cell_embeddings[rowSums(is.na(cell_embeddings)) == ncol(cell_embeddings), ] <- 0
+  anchors@object.list[[1]][["pcaproject"]]@cell.embeddings <- cell_embeddings
 
   # Transfer cell type labels and impute protein expression
   #
