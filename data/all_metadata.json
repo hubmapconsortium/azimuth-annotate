@@ -68,8 +68,8 @@
             "organ": "lung",
             "doi": "10.5281/zenodo.6342228"
         },
-        "CL_version": "v2023-01-09",
-        "mapping_version": "0.1"
+        "CL_version": "v2024-08-16",
+        "mapping_version": "0.2"
     },
     "reviewers": [
         {
