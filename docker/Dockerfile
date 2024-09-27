@@ -25,3 +25,7 @@ RUN mkdir /opt/human_heart
 RUN wget -q --no-check-certificate https://zenodo.org/record/7032964/files/idx.annoy -O /opt/human_heart/idx.annoy
 RUN wget -q --no-check-certificate https://zenodo.org/record/7032964/files/ref.Rds -O /opt/human_heart/ref.Rds
 
+# added pancreas reference 
+RUN mkdir /opt/human_pancreas
+RUN wget -q --no-check-certificate https://zenodo.org/record/4546926/files/idx.annoy -O /opt/human_pancreas/idx.annoy
+RUN wget -q --no-check-certificate https://zenodo.org/record/4546926/files/ref.Rds -O /opt/human_pancreas/ref.Rds

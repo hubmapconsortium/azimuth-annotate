@@ -20,7 +20,7 @@ if (!file.exists(query.h5.path)) {
   stop("Path to secondary_analysis.h5ad ", save.h5.path, call. = FALSE)
 }
 
-if (organ.code %in% c("RK", "LK", "RL", "LL", "HT")) {
+if (organ.code %in% c("RK", "LK", "RL", "LL", "HT", "PA")) {
   # reference.path points to path within docker image
   if (organ.code %in% c("RK", "LK")) {
     reference.path = "/opt/human_kidney"
@@ -31,7 +31,12 @@ if (organ.code %in% c("RK", "LK", "RL", "LL", "HT")) {
   } else if (organ.code %in% "HT") { 
     reference.path = "/opt/human_heart"
     reference.name = "heart"
+  } else if (organ.code %in% "PA") { 
+    reference.path = "/opt/human_pancreas"
+    reference.name = "pancfd"
   }
+  # added pancreas 
+  
   if (!dir.exists(reference.path)) {
     stop("Reference path does not exist ", reference.path, call. = FALSE)
   }
