@@ -90,5 +90,23 @@
         }
     ],
     "disclaimer": "Azimuth reference labels have been converted to closest corresponding cell ontologies."
-}
-}
+},
+"pancreas": {
+    "versions": {
+        "azimuth_reference": {
+            "version": "1.0.0",
+            "annotation_level": "annotation.l1",
+            "organ": "pancreas",
+            "doi": "10.5281/zenodo.4546926"
+        },
+        "CL_version": "v2023-01-09",
+        "mapping_version": "0.1"
+    },
+    "reviewers": [
+        {
+            "name": "Gesmira Molla",
+            "ORCID": "0000-0002-8628-5056"
+        }
+    ],
+    "disclaimer": "Azimuth reference labels have been converted to closest corresponding cell ontologies."
+}}
