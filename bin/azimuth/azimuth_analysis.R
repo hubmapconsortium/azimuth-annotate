@@ -1,5 +1,8 @@
 #!/usr/bin/env Rscript
 
+# update max size 
+options(future.globals.maxSize = 8000 * 1024^2)
+
 library(Seurat)
 library(Azimuth)
 library(anndata)
