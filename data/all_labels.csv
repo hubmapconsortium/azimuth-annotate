@@ -80,8 +80,8 @@ lung_ann_finest_level,AT2,AZ:0000078,type II pneumocyte,CL:0002063,skos:exactMat
 lung_ann_finest_level,AT2 proliferating,AZ:0000079,type II pneumocyte:proliferating,CL:0002063,skos:narrowMatch
 lung_ann_finest_level,B cells,AZ:0000080,B cell,CL:0000236,skos:exactMatch
 lung_ann_finest_level,Basal resting,AZ:0000081,respiratory basal cell,CL:0002633,skos:exactMatch
-lung_ann_finest_level,CD4 T cells,AZ:0000082,CD4-positive, alpha-beta T cell,CL:0000624,skos:exactMatch
-lung_ann_finest_level,CD8 T cells,AZ:0000083,CD8-positive, alpha-beta T cell,CL:0000625,skos:exactMatch
+lung_ann_finest_level,CD4 T cells,AZ:0000082,"CD4-positive, alpha-beta T cell",CL:0000624,skos:exactMatch
+lung_ann_finest_level,CD8 T cells,AZ:0000083,"CD8-positive, alpha-beta T cell",CL:0000625,skos:exactMatch
 lung_ann_finest_level,Classical monocytes,AZ:0000084,classical monocyte,CL:0000860,skos:exactMatch
 lung_ann_finest_level,Club (nasal),AZ:0000085,club cell:nasal,CL:0000158,skos:narrowMatch
 lung_ann_finest_level,Club (non-nasal),AZ:0000086,club cell:non-nasal,CL:0000158,skos:narrowMatch
