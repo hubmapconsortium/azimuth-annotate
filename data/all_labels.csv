@@ -69,64 +69,64 @@ kidney_annotation.l3,Renin-positive Juxtaglomerular Granular,AZ:0000067,kidney g
 kidney_annotation.l3,Schwann / Neural,AZ:0000068,Schwann cell,CL:0002573,skos:exactMatch
 kidney_annotation.l3,T,AZ:0000069,T cell,CL:0000084,skos:exactMatch
 kidney_annotation.l3,Vascular Smooth Muscle / Pericyte,AZ:0000070,renal interstitial pericyte,CL:1001318,skos:exactMatch
-lung_ann_finest_level,Adventitial fibroblasts,AZ:0000071,fibroblast of lung:adventitial,CL:0002553,skos:narrowMatch
-lung_ann_finest_level,Alveolar fibroblasts,AZ:0000072,fibroblast of lung:alveolar,CL:0002553,skos:narrowMatch
+lung_ann_finest_level,Adventitial fibroblasts,AZ:0000071,adventitial fibroblast,CL:4028006,skos:exactMatch
+lung_ann_finest_level,Alveolar fibroblasts,AZ:0000072,alveolar fibroblast,CL:4028004,skos:exactMatch
 lung_ann_finest_level,Alveolar macrophages,AZ:0000073,alveolar macrophage,CL:0000583,skos:exactMatch
-lung_ann_finest_level,Alveolar Mφ CCL3+,AZ:0000074,alveolar macrophage:CCL3-positive,CL:0000583,skos:narrowMatch
-lung_ann_finest_level,Alveolar Mφ MT-positive,AZ:0000075,alveolar macrophage:MT-positive,CL:0000583,skos:narrowMatch
+lung_ann_finest_level,Alveolar Mφ CCL3+,AZ:0000074,alveolar macrophage:CCL3-positive,CL:4033041,skos:exactMatch
+lung_ann_finest_level,Alveolar Mφ MT-positive,AZ:0000075,alveolar macrophage:MT-positive,CL:4033042,skos:exactMatch
 lung_ann_finest_level,Alveolar Mφ proliferating,AZ:0000076,alveolar macrophage:proliferating,CL:0000583,skos:narrowMatch
-lung_ann_finest_level,AT1,AZ:0000077,alveolar type 1 fibroblast cell,CL:4028004,skos:exactMatch
-lung_ann_finest_level,AT2,AZ:0000078,alveolar type 2 fibroblast cell,CL:4028006,skos:exactMatch
-lung_ann_finest_level,AT2 proliferating,AZ:0000079,alveolar type 2 fibroblast cell:proliferating,CL:4028006,skos:narrowMatch
+lung_ann_finest_level,AT1,AZ:0000077,type I pneumocyte,CL:0002062,skos:exactMatch
+lung_ann_finest_level,AT2,AZ:0000078,type II pneumocyte,CL:0002063,skos:exactMatch
+lung_ann_finest_level,AT2 proliferating,AZ:0000079,type II pneumocyte:proliferating,CL:0002063,skos:narrowMatch
 lung_ann_finest_level,B cells,AZ:0000080,B cell,CL:0000236,skos:exactMatch
 lung_ann_finest_level,Basal resting,AZ:0000081,respiratory basal cell,CL:0002633,skos:exactMatch
-lung_ann_finest_level,CD4 T cells,AZ:0000082,CD4-positive helper T cell,CL:0000492,skos:exactMatch
-lung_ann_finest_level,CD8 T cells,AZ:0000083,"effector memory CD8-positive, alpha-beta T cell",CL:0000913,skos:exactMatch
-lung_ann_finest_level,Classical monocytes,AZ:0000084,monocyte,CL:0000576,skos:exactMatch
+lung_ann_finest_level,CD4 T cells,AZ:0000082,"""CD4-positive, alpha-beta T cell""",CL:0000624,skos:exactMatch
+lung_ann_finest_level,CD8 T cells,AZ:0000083,"""CD8-positive, alpha-beta T cell""",CL:0000625,skos:exactMatch
+lung_ann_finest_level,Classical monocytes,AZ:0000084,classical monocyte,CL:0000860,skos:exactMatch
 lung_ann_finest_level,Club (nasal),AZ:0000085,club cell:nasal,CL:0000158,skos:narrowMatch
 lung_ann_finest_level,Club (non-nasal),AZ:0000086,club cell:non-nasal,CL:0000158,skos:narrowMatch
 lung_ann_finest_level,DC1,AZ:0000087,CD141-positive myeloid dendritic cell,CL:0002394,skos:exactMatch
 lung_ann_finest_level,DC2,AZ:0000088,CD1c-positive myeloid dendritic cell,CL:0002399,skos:exactMatch
-lung_ann_finest_level,Deuterosomal,AZ:0000089,multi-ciliated epithelial cell:deuterosomal,CL:0005012,skos:narrowMatch
-lung_ann_finest_level,EC aerocyte capillary,AZ:0000090,capillary endothelial cell:aerocyte,CL:0002144,skos:narrowMatch
-lung_ann_finest_level,EC arterial,AZ:0000091,endothelial cell of artery,CL:1000413,skos:exactMatch
-lung_ann_finest_level,EC general capillary,AZ:0000092,capillary endothelial cell,CL:0002144,skos:exactMatch
-lung_ann_finest_level,EC venous pulmonary,AZ:0000093,endothelial cell of venule:pulmonary,CL:1000414,skos:narrowMatch
-lung_ann_finest_level,EC venous systemic,AZ:0000094,endothelial cell of venule,CL:1000414,skos:exactMatch
+lung_ann_finest_level,Deuterosomal,AZ:0000089,deuterosomal cell,CL:4033044,skos:exactMatch
+lung_ann_finest_level,EC aerocyte capillary,AZ:0000090,alveolar capillary type 2 endothelial cell,CL:4028003,skos:exactMatch
+lung_ann_finest_level,EC arterial,AZ:0000091,pulmonary artery endothelial cell,CL:1001568,skos:exactMatch
+lung_ann_finest_level,EC general capillary,AZ:0000092,alveolar capillary type 1 endothelial cell,CL:4028002,skos:exactMatch
+lung_ann_finest_level,EC venous pulmonary,AZ:0000093,vein endothelial cell of respiratory system,CL:4033008,skos:narrowMatch
+lung_ann_finest_level,EC venous systemic,AZ:0000094,vein endothelial cell of respiratory system,CL:4033008,skos:narrowMatch
 lung_ann_finest_level,Fibromyocytes,AZ:0000095,fibroblast of lung:fibromyocyte,CL:0002553,skos:narrowMatch
 lung_ann_finest_level,Goblet (bronchial),AZ:0000096,tracheobronchial goblet cell,CL:0019003,skos:exactMatch
 lung_ann_finest_level,Goblet (nasal),AZ:0000097,nasal mucosa goblet cell,CL:0002480,skos:exactMatch
 lung_ann_finest_level,Goblet (subsegmental),AZ:0000098,lung goblet cell,CL:1000143,skos:exactMatch
-lung_ann_finest_level,Interstitial Mφ perivascular,AZ:0000099,tissue-resident macrophage,CL:0000864,skos:exactMatch
-lung_ann_finest_level,Ionocyte,AZ:0000100,ionocyte,CL:0005006,skos:exactMatch
-lung_ann_finest_level,Lymphatic EC differentiating,AZ:0000101,endothelial cell of lymphatic vessel:differentiating,CL:0002138,skos:narrowMatch
-lung_ann_finest_level,Lymphatic EC mature,AZ:0000102,endothelial cell of lymphatic vessel:mature,CL:0002138,skos:narrowMatch
-lung_ann_finest_level,Lymphatic EC proliferating,AZ:0000103,endothelial cell of lymphatic vessel:proliferating,CL:0002138,skos:narrowMatch
+lung_ann_finest_level,Interstitial Mφ perivascular,AZ:0000099,lung interstitial macrophage,CL:4033043,skos:exactMatch
+lung_ann_finest_level,Ionocyte,AZ:0000100,pulmonary ionocyte,CL:0017000,skos:exactMatch
+lung_ann_finest_level,Lymphatic EC differentiating,AZ:0000101,endothelial cell of lymphatic vessel:differentiating,CL:0009086,skos:narrowMatch
+lung_ann_finest_level,Lymphatic EC mature,AZ:0000102,endothelial cell of lymphatic vessel:mature,CL:0009086,skos:narrowMatch
+lung_ann_finest_level,Lymphatic EC proliferating,AZ:0000103,endothelial cell of lymphatic vessel:proliferating,CL:0009086,skos:narrowMatch
 lung_ann_finest_level,Mast cells,AZ:0000104,mast cell,CL:0000097,skos:exactMatch
 lung_ann_finest_level,Mesothelium,AZ:0000105,mesothelial cell of pleura,CL:1000491,skos:exactMatch
-lung_ann_finest_level,Migratory DCs,AZ:0000106,dendritic cell:migratory,CL:0000451,skos:narrowMatch
+lung_ann_finest_level,Migratory DCs,AZ:0000106,lung migratory dendritic cell,CL:4033045,skos:exactMatch
 lung_ann_finest_level,Monocyte derived Mφ,AZ:0000107,lung macrophage:monocyte derived,CL:1001603,skos:narrowMatch
 lung_ann_finest_level,Multiciliated (nasal),AZ:0000108,multi-ciliated epithelial cell:nasal,CL:0005012,skos:narrowMatch
-lung_ann_finest_level,Multiciliated (non-nasal),AZ:0000109,multi-ciliated epithelial cell:non-nasal,CL:0005012,skos:narrowMatch
+lung_ann_finest_level,Multiciliated (non-nasal),AZ:0000109,ciliated columnar cell of tracheobronchial tree:non-nasal,CL:0002145,skos:narrowMatch
 lung_ann_finest_level,Myofibroblasts,AZ:0000110,myofibroblast cell,CL:0000186,skos:exactMatch
-lung_ann_finest_level,Neuroendocrine,AZ:0000111,neuroendocrine cell,CL:0000165,skos:exactMatch
+lung_ann_finest_level,Neuroendocrine,AZ:0000111,lung neuroendocrine cell,CL:1000223,skos:exactMatch
 lung_ann_finest_level,NK cells,AZ:0000112,natural killer cell,CL:0000623,skos:exactMatch
 lung_ann_finest_level,Non classical monocytes,AZ:0000113,non-classical monocyte,CL:0000875,skos:exactMatch
 lung_ann_finest_level,Peribronchial fibroblasts,AZ:0000114,pulmonary interstitial fibroblast,CL:0002241,skos:exactMatch
 lung_ann_finest_level,Pericytes,AZ:0000115,lung pericyte,CL:0009089,skos:exactMatch
 lung_ann_finest_level,Plasma cells,AZ:0000116,plasma cell,CL:0000786,skos:exactMatch
-lung_ann_finest_level,Plasmacytoid DCs,AZ:0000117,"plasmacytoid dendritic cell, human",CL:0001058,skos:exactMatch
-lung_ann_finest_level,SM activated stress response,AZ:0000118,serous secreting cell:activated,CL:0000313,skos:narrowMatch
-lung_ann_finest_level,SMG duct,AZ:0000119,duct epithelial cell,CL:0000068,skos:exactMatch
-lung_ann_finest_level,SMG mucous,AZ:0000120,mucous neck cell,CL:0000651,skos:exactMatch
-lung_ann_finest_level,SMG serous (bronchial),AZ:0000121,serous secreting cell:bronchial,CL:0000313,skos:narrowMatch
+lung_ann_finest_level,Plasmacytoid DCs,AZ:0000117,plasmacytoid dendritic cell,CL:0000784,skos:exactMatch
+lung_ann_finest_level,SM activated stress response,AZ:0000118,smooth muscle cell:activated,CL:0000192,skos:narrowMatch
+lung_ann_finest_level,SMG duct,AZ:0000119,airway submucosal gland collecting duct epithelial cell,CL:4033023,skos:exactMatch
+lung_ann_finest_level,SMG mucous,AZ:0000120,mucus secreting cell of bronchus submucosal gland,CL:4033022,skos:exactMatch
+lung_ann_finest_level,SMG serous (bronchial),AZ:0000121,serous secreting cell of bronchus submucosal gland,CL:4033005,skos:exactMatch
 lung_ann_finest_level,SMG serous (nasal),AZ:0000122,serous secreting cell:nasal,CL:0000313,skos:narrowMatch
 lung_ann_finest_level,Smooth muscle,AZ:0000123,smooth muscle cell,CL:0000192,skos:exactMatch
 lung_ann_finest_level,Subpleural fibroblasts,AZ:0000124,mesothelial fibroblast,CL:4023054,skos:exactMatch
-lung_ann_finest_level,Suprabasal,AZ:0000125,respiratory basal cell,CL:0002633,skos:exactMatch
+lung_ann_finest_level,Suprabasal,AZ:0000125,respiratory suprabasal cell,CL:4033048,skos:exactMatch
 lung_ann_finest_level,T cells proliferating,AZ:0000126,T cell:proliferating,CL:0000084,skos:narrowMatch
-lung_ann_finest_level,Transitional Club AT2,AZ:0000127,club cell:transitional alveolar type 2 fibroblast,CL:0000158,skos:narrowMatch
-lung_ann_finest_level,Tuft,AZ:0000128,intestinal tuft cell,CL:0019032,skos:exactMatch
+lung_ann_finest_level,Transitional Club AT2,AZ:0000127,club cell:AT2transitional,CL:0000158,skos:narrowMatch
+lung_ann_finest_level,Tuft,AZ:0000128,brush cell of trachebronchial tree,CL:0002075,skos:exactMatch
 ,,AZ:0000129,,AZ:0000129,
 ,,AZ:0000130,,AZ:0000130,
 ,,AZ:0000131,,AZ:0000131,
@@ -348,3 +348,54 @@ lung_ann_finest_level,Tuft,AZ:0000128,intestinal tuft cell,CL:0019032,skos:exact
 ,,AZ:0000347,,AZ:0000347,
 ,,AZ:0000348,,AZ:0000348,
 ,,AZ:0000349,,AZ:0000349,
+,,AZ:0000350,,AZ:0000350,
+,,AZ:0000351,,AZ:0000351,
+,,AZ:0000352,,AZ:0000352,
+,,AZ:0000353,,AZ:0000353,
+,,AZ:0000354,,AZ:0000354,
+,,AZ:0000355,,AZ:0000355,
+,,AZ:0000356,,AZ:0000356,
+,,AZ:0000357,,AZ:0000357,
+,,AZ:0000358,,AZ:0000358,
+,,AZ:0000359,,AZ:0000359,
+,,AZ:0000360,,AZ:0000360,
+,,AZ:0000361,,AZ:0000361,
+,,AZ:0000362,,AZ:0000362,
+,,AZ:0000363,,AZ:0000363,
+,,AZ:0000364,,AZ:0000364,
+,,AZ:0000365,,AZ:0000365,
+,,AZ:0000366,,AZ:0000366,
+,,AZ:0000367,,AZ:0000367,
+,,AZ:0000368,,AZ:0000368,
+,,AZ:0000369,,AZ:0000369,
+,,AZ:0000370,,AZ:0000370,
+,,AZ:0000371,,AZ:0000371,
+,,AZ:0000372,,AZ:0000372,
+,,AZ:0000373,,AZ:0000373,
+,,AZ:0000374,,AZ:0000374,
+,,AZ:0000375,,AZ:0000375,
+,,AZ:0000376,,AZ:0000376,
+,,AZ:0000377,,AZ:0000377,
+,,AZ:0000378,,AZ:0000378,
+,,AZ:0000379,,AZ:0000379,
+,,AZ:0000380,,AZ:0000380,
+,,AZ:0000381,,AZ:0000381,
+,,AZ:0000382,,AZ:0000382,
+,,AZ:0000383,,AZ:0000383,
+,,AZ:0000384,,AZ:0000384,
+,,AZ:0000385,,AZ:0000385,
+,,AZ:0000386,,AZ:0000386,
+,,AZ:0000387,,AZ:0000387,
+pancreas_celltype.l1,cycling,AZ:0000388,pancreatic endocrine cell:cycling,CL:0008024,skos:narrowMatch
+pancreas_celltype.l1,immune,AZ:0000389,leukocyte,CL:0000738,skos:exactMatch
+pancreas_celltype.l1,quiescent_stellate,AZ:0000390,pancreatic stellate cell:quiescent,CL:0002410,skos:narrowMatch
+pancreas_celltype.l1,endothelial,AZ:0000391,endothelial cell,CL:0000115,skos:exactMatch
+pancreas_celltype.l1,schwann,AZ:0000392,Schwann cell,CL:0002573,skos:exactMatch
+pancreas_celltype.l1,activated_stellate,AZ:0000393,pancreatic stellate cell:activated,CL:0002410,skos:narrowMatch
+pancreas_celltype.l1,epsilon,AZ:0000394,pancreatic epsilon cell,CL:0005019,skos:exactMatch
+pancreas_celltype.l1,gamma,AZ:0000395,pancreatic PP cell,CL:0002275,skos:exactMatch
+pancreas_celltype.l1,delta,AZ:0000396,pancreatic D cell,#REF!,skos:exactMatch
+pancreas_celltype.l1,ductal,AZ:0000397,pancreatic ductal cell,CL:0002079,skos:exactMatch
+pancreas_celltype.l1,acinar,AZ:0000398,pancreatic acinar cell,CL:0002064,skos:exactMatch
+pancreas_celltype.l1,beta,AZ:0000399,type B pancreatic cell,CL:0000171,skos:exactMatch
+pancreas_celltype.l1,alpha,AZ:0000400,pancreatic A cell,#REF!,skos:exactMatch

@@ -4,7 +4,7 @@ cwlVersion: v1.0
 class: CommandLineTool
 requirements:
   - class: DockerRequirement
-    dockerPull: hubmap/azimuth-annotate:1.6
+    dockerPull: hubmap/azimuth-annotate:1.9
 baseCommand: [Rscript, /azimuth_analysis.R]
 
 inputs:
