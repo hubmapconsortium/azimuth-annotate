@@ -394,8 +394,8 @@ pancreas_celltype.l1,schwann,AZ:0000392,Schwann cell,CL:0002573,skos:exactMatch
 pancreas_celltype.l1,activated_stellate,AZ:0000393,pancreatic stellate cell:activated,CL:0002410,skos:narrowMatch
 pancreas_celltype.l1,epsilon,AZ:0000394,pancreatic epsilon cell,CL:0005019,skos:exactMatch
 pancreas_celltype.l1,gamma,AZ:0000395,pancreatic PP cell,CL:0002275,skos:exactMatch
-pancreas_celltype.l1,delta,AZ:0000396,pancreatic D cell,#REF!,skos:exactMatch
+pancreas_celltype.l1,delta,AZ:0000396,pancreatic D cell,CL:0000173,skos:exactMatch
 pancreas_celltype.l1,ductal,AZ:0000397,pancreatic ductal cell,CL:0002079,skos:exactMatch
 pancreas_celltype.l1,acinar,AZ:0000398,pancreatic acinar cell,CL:0002064,skos:exactMatch
-pancreas_celltype.l1,beta,AZ:0000399,type B pancreatic cell,CL:0000171,skos:exactMatch
-pancreas_celltype.l1,alpha,AZ:0000400,pancreatic A cell,#REF!,skos:exactMatch
+pancreas_celltype.l1,beta,AZ:0000399,type B pancreatic cell,CL:0000169,skos:exactMatch
+pancreas_celltype.l1,alpha,AZ:0000400,pancreatic A cell,CL:0000171,skos:exactMatch
