@@ -21,6 +21,10 @@ outputs:
     outputSource: write_metadata/annotated_matrix
     type: File
     label: "final secondary analysis matrix with all labels and metadata"
+  version_metadata:
+    outputSource: azimuth/version_metadata
+    type: File
+    label: "annotation information for elasticsearch"
 
 steps:
   expr_h5ad_adjust:
