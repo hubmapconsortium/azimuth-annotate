@@ -36,6 +36,21 @@ steps:
         source: matrix
     out:
       - matrix_adj
+      - counts_matrix
+      - barcodes
+      - features
+ mtx-to-seurat
+    in:
+      - id: matrix_files
+        source: expr_h5ad_adjust/counts_matrix
+      - id: features_files
+        source: expr_h5ad_adjust/features
+      - id: barcodes_files
+        source: expr_h5ad_adjust/barcodes
+
+    out:
+      - seurat_rds
+    run: steps/mtx-to-seurat.cwl
   extract_rna_secondary_matrix:
     run: steps/extract-rna-secondary-matrix.cwl
     in:
