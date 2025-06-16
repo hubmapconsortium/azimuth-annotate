@@ -25,6 +25,10 @@ outputs:
     outputSource: azimuth/version_metadata
     type: File
     label: "annotation information for elasticsearch"
+  calculated_metadata:
+    outputSource: azimuth/calculated_metadata
+    type: File
+    label: "annotation information"
 
 steps:
   expr_h5ad_adjust:
@@ -56,6 +60,7 @@ steps:
       - annotated_matrix
       - version_metadata
       - annotations_csv
+      - calculated_metadata
   write_metadata:
     run: steps/write-metadata.cwl
     in:

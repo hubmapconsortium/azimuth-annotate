@@ -16,6 +16,7 @@ save.h5.path <- args[3]
 secondary.analysis.path <- "secondary_analysis.h5ad"
 version.metadata.path <- "version_metadata.json"
 annotations.csv.path <- "annotations.csv"
+calculated.metadata.path <- "calculated_metadata.json"
 
 if (!file.exists(query.h5.path)) {
   stop("Path to raw counts matrix doesn't exist ", query.h5.path, call. = FALSE)
@@ -243,9 +244,20 @@ if (organ.code %in% c("RK", "LK", "RL", "LL", "HT")) {
     "azimuth_reference" = list("version" = reference.version, "name" = reference.name),
     "annotation_names" = predicted.cols
   )
+
+  calculated.metadata <- list(
+    "object_types" = list("CL:0000000"),
+    "annotation_tools" = list("Azimuth")
+  )
+
   version.metadata.json = toJSON(version.metadata)
   f <- file("version_metadata.json")
   write(version.metadata.json, f)
+  close(f)
+
+  calculated.metadata.json = toJSON(calculated.metadata)
+  f <- file("calculated_metadata.json")
+  write(calculated.metadata.json, f)
   close(f)
 
 } else {
@@ -254,9 +266,17 @@ if (organ.code %in% c("RK", "LK", "RL", "LL", "HT")) {
   ad <- read_h5ad(save.h5.path)
   write_h5ad(ad, secondary.analysis.path)
   version.metadata <- list("is_annotated" = FALSE)
+  calculated.metadata <- list(
+    "object_types" = list("None"),
+    "annotation_tools" = list("None")
+  )
   version.metadata.json = toJSON(version.metadata)
   f <- file(version.metadata.path)
   write(version.metadata.json, f)
+  close(f)
+  calculated.metadata.json = toJSON(calculated.metadata)
+  f <- file(calculated.metadata.path)
+  write(calculated.metadata.json, f)
   close(f)
   # Create dummy annotations file if no annotation performed. Will handle this case in write_metadata.py
 }
