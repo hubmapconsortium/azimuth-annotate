@@ -4,7 +4,7 @@ cwlVersion: v1.0
 class: CommandLineTool
 requirements:
   - class: DockerRequirement
-    dockerPull: hubmap/azimuth-annotate:1.8
+    dockerPull: hubmap/azimuth-annotate:1.9
 baseCommand: [Rscript, /azimuth_analysis.R]
 
 inputs:
@@ -34,3 +34,7 @@ outputs:
     type: File
     outputBinding:
       glob: "annotations.csv"
+  calculated_metadata:
+    type: File
+    outputBinding:
+      glob: "calculated_metadata.json"
